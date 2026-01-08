@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Instagram, Facebook, Youtube, Menu, X } from 'lucide-react';
-import wavePattern from 'figma:asset/6e7c00379a0f0ced59eb2110e859806c60ff0d58.png';
-import kottayamIllustration from 'figma:asset/60a054ad3b5c1dea8dcf5b82e985297f515da54d.png';
-import aksharamLogo from 'figma:asset/409a809ee95bee3b3e5aa6743e1dcac95f47391a.png';
+import wavePattern from './assets/6e7c00379a0f0ced59eb2110e859806c60ff0d58.webp';
+import kottayamIllustration from './assets/60a054ad3b5c1dea8dcf5b82e985297f515da54d.webp';
+import aksharamLogo from './assets/409a809ee95bee3b3e5aa6743e1dcac95f47391a.webp';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
