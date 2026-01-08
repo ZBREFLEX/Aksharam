@@ -13,11 +13,17 @@ export default function App() {
   };
 
   if (currentPage === 'about-aksharam') {
-    return <AboutAksharamPage onBack={() => navigateTo('home')} />;
+    return <AboutAksharamPage onBack={() => navigateTo('home')} onNavigate={navigateTo} />;
   }
 
   if (currentPage === 'about-2026') {
-    return <About2026Page onBack={() => navigateTo('home')} />;
+    return <About2026Page onBack={() => navigateTo('home')} onNavigate={navigateTo} />;
+  }
+  if (currentPage === 'about-Dinu') {
+    return <AboutDinuSection onBack={() => navigateTo('home')} />;
+  }
+  if (currentPage === 'about-Aju') {
+    return <AboutAjuSection onBack={() => navigateTo('home')} />;
   }
 
   if (currentPage === 'all-speakers') {
@@ -27,6 +33,8 @@ export default function App() {
   if (currentPage === 'all-sponsors') {
     return <AllSponsorsPage onBack={() => navigateTo('home')} />;
   }
+  
+ 
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
@@ -36,6 +44,8 @@ export default function App() {
       <About2026Section onNavigate={navigateTo} />
       <SponsorsSection onNavigate={navigateTo} />
       <SpeakersSection onNavigate={navigateTo} />
+      <AboutDinuSection onNavigate={navigateTo}/>
+      <AboutAjuSection onNavigate={navigateTo}/>
       <ContactSection />
       <SocialSection />
       <Footer />
@@ -122,7 +132,7 @@ function Navbar() {
           
           {/* Register Buttons */}
          <a
-  href="https://forms.google.com/sponsor"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfvWw-IE2YNd2EDHk5X5uIWMOYT79MnxWAwRSmQIb_VATeH2Q/viewform?usp=publish-editor"
   target="_blank"
   rel="noopener noreferrer"
   className="px-6 py-2 transition-all duration-300"
@@ -148,7 +158,7 @@ function Navbar() {
 </a>
 
          <a
-  href="https://forms.google.com/volunteer"
+  href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
   target="_blank"
   rel="noopener noreferrer"
   className="px-6 py-2 transition-all duration-300"
@@ -503,13 +513,25 @@ function AboutSection({ onNavigate }: { onNavigate: (page: string) => void }) {
             fontSize: 'clamp(1rem, 2vw, 1.125rem)',
             lineHeight: '1.8',
             color: '#2a2a2a',
-            letterSpacing: '0.005em'
+            letterSpacing: '0.005em',
+            fontWeight: "500", 
           }}
         >
-          Aksharam Literature Festival is a gathering space for writers, thinkers, and readers 
-          who believe in the transformative power of words. Rooted in cultural depth and 
-          intellectual rigor, the festival serves as a platform for meaningful dialogue across 
-          languages, disciplines, and perspectives.
+          AKSHARAM is a contemporary literature festival that reclaims letters as acts of truth, memory, and resistance.
+        </p>
+        <p 
+          className="mb-6"
+          style={{
+            fontSize: 'clamp(1rem, 2vw, 1.125rem)',
+            lineHeight: '1.8',
+            color: '#2a2a2a',
+            letterSpacing: '0.005em',
+          }}
+        >
+          In an era shaped by “post-truth,” AKSHARAM stands as a collective chant for truth, language, and critical thought. Rooted in Kottayam, the historic Land of Letters, the festival draws inspiration from the landmark 1957 literary conference that shaped modern Kerala’s cultural consciousness.
+AKSHARAM brings together writers, thinkers, and artists to explore literature as a voice for the marginalized and as a space for rational, cultural dialogue. After seven decades, a stage for ideas, debate, and creative exchange rises again in Kottayam.
+Letters are noisy. They refuse silence, always.
+
         </p>
         <button
           onClick={() => onNavigate('about-aksharam')}
@@ -541,52 +563,91 @@ function AboutSection({ onNavigate }: { onNavigate: (page: string) => void }) {
 
 function About2026Section({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
-    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
+    <section
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
       <div className="max-w-3xl mx-auto">
-        <h2 
+        <h2
           className="mb-6 md:mb-8"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            color: '#0b0b0b',
-            letterSpacing: '-0.01em'
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            color: "#0b0b0b",
+            letterSpacing: "-0.01em",
           }}
         >
           About Aksharam 2026
         </h2>
-        <p 
+        <p
           className="mb-6"
           style={{
-            fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-            lineHeight: '1.8',
-            color: '#2a2a2a',
-            letterSpacing: '0.005em'
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+            fontWeight: "500",
           }}
         >
-          The 2026 edition of Aksharam continues our commitment to literary excellence and 
-          cultural exploration. This year's program features conversations with acclaimed authors, 
-          emerging voices, translators, and scholars—each bringing unique insights into the 
-          evolving landscape of contemporary literature.
+          Unseen Letters — Voices erased from history, remembered through
+          literature and art.
+        </p>
+        <p
+          style={{
+            fontFamily: '"Noto Serif Malayalam", "Noto Sans Malayalam", serif',
+            fontSize: "1.25rem",
+            lineHeight: "1.8",
+            textAlign: "center",
+            whiteSpace: "pre-line",
+          }}
+        >
+          {`“കാണുന്നിലോകക്ഷരവും
+എന്റെ വസന്തത്തെപ്പറ്റി
+കാണുന്നുണ്ടോ വസന്തത്തിലെ
+ചരിത്രങ്ങൾ”`}
+        </p>
+
+        <p
+          className="mb-6"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+          }}
+        >
+          A century ago, Poykayil Appachan wrote of a painful absence — the
+          absence of letters that record the history of his own people.
+          Throughout history, eras have repeatedly silenced the voices of those
+          marginalized. Languages, writings, memories, and lived experiences of
+          many communities have been erased or rendered invisible by structures
+          of caste, class, gender, religion, and power. Letters are more than
+          linguistic forms; they are acts of resistance against forgetting.
+          Literature and the arts become political when they listen to unheard
+          voices and read what history has chosen not to preserve. Festival of
+          Unseen Letters is a platform of remembrance — a cultural defence built
+          with letters against oblivion. It asserts that no history is complete
+          without reading what was left unseen.
         </p>
         <button
-          onClick={() => onNavigate('about-2026')}
+          onClick={() => onNavigate("about-2026")}
           className="transition-all duration-300"
           style={{
-            color: '#5b1b8d',
-            textDecoration: 'underline',
-            textUnderlineOffset: '4px',
-            fontSize: '1rem',
-            letterSpacing: '0.01em',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0
+            color: "#5b1b8d",
+            textDecoration: "underline",
+            textUnderlineOffset: "4px",
+            fontSize: "1rem",
+            letterSpacing: "0.01em",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.opacity = '0.7';
+            e.currentTarget.style.opacity = "0.7";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.opacity = "1";
           }}
         >
           Read more
@@ -1151,51 +1212,94 @@ function SpeakerCard({ speaker }: { speaker: Speaker }) {
 function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
-      <div className="max-w-3xl mx-auto">
-        <h2 
-          className="mb-6 md:mb-8"
-          style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            color: '#0b0b0b',
-            letterSpacing: '-0.01em'
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        {/* Left Side: Contact Info */}
+        <div>
+          <h2 
+            className="mb-6 md:mb-8"
+            style={{
+              fontFamily: 'Georgia, serif',
+              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+              color: '#0b0b0b',
+              letterSpacing: '-0.01em'
+            }}
+          >
+            Contact
+          </h2>
+          <div className="space-y-6">
+            <div className="flex flex-col gap-1">
+              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>General Enquiries</span>
+              <a 
+                href="mailto:aksharamlitfest@gmail.com"
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)',
+                  color: '#2a2a2a',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid #2a2a2a',
+                  paddingBottom: '2px',
+                  display: 'inline-block',
+                  alignSelf: 'flex-start',
+                  letterSpacing: '0.005em'
+                }}
+              >
+                aksharamlitfest@gmail.com
+              </a>
+            </div>
+            
+            <div className="flex flex-col gap-1">
+              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>Contact Number</span>
+              <a 
+                href="mailto:office@aksharamlitfest.com"
+                style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.125rem)',
+                  color: '#2a2a2a',
+                  textDecoration: 'none',
+                  borderBottom: '1px solid #2a2a2a',
+                  paddingBottom: '2px',
+                  display: 'inline-block',
+                  alignSelf: 'flex-start',
+                  letterSpacing: '0.005em'
+                }}
+              >
+                +91 89218 09750
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-1 pt-4">
+              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>Location</span>
+              <p 
+                style={{
+                  fontSize: '1rem',
+                  lineHeight: '1.6',
+                  color: '#2a2a2a'
+                }}
+              >
+                CMS College,<br/>
+                Kottayam, Kerala 686001
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side: Map */}
+        <div 
+          className="w-full h-[400px] md:h-[450px] overflow-hidden"
+          style={{ 
+            borderRadius: '2px',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
+            border: '1px solid rgba(0,0,0,0.05)'
           }}
         >
-          Contact
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <a 
-              href="mailto:aksharamlitfest@gmail.com"
-              style={{
-                fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                borderBottom: '1px solid #2a2a2a',
-                paddingBottom: '2px',
-                display: 'inline-block',
-                letterSpacing: '0.005em'
-              }}
-            >
-              aksharamlitfest@gmail.com
-            </a>
-          </div>
-          <div>
-            <a 
-              href="mailto:office@aksharamlitfest.com"
-              style={{
-                fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                borderBottom: '1px solid #2a2a2a',
-                paddingBottom: '2px',
-                display: 'inline-block',
-                letterSpacing: '0.005em'
-              }}
-            >
-              office@aksharamlitfest.com
-            </a>
-          </div>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.981735521457!2d76.5206664!3d9.596840699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062b0c12abf377%3A0x59076985a0f3b64!2sCMS%20College%20Kottayam!5e0!3m2!1sen!2sin!4v1767874517335!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, filter: 'grayscale(1) contrast(0.9) opacity(0.9)' }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Aksharam Location Map"
+          ></iframe>
         </div>
       </div>
     </section>
@@ -1219,7 +1323,7 @@ function SocialSection() {
         </h2>
         <div className="flex flex-wrap gap-6 md:gap-8 items-center">
           <a 
-            href="https://instagram.com/aksharamlitfest"
+            href="https://www.instagram.com/aksharamlitfest/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
@@ -1234,7 +1338,7 @@ function SocialSection() {
             <span>Instagram</span>
           </a>
           <a 
-            href="https://facebook.com/aksharamlitfest"
+            href="https://www.facebook.com/profile.php?id=61585870871075"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
@@ -1249,7 +1353,7 @@ function SocialSection() {
             <span>Facebook</span>
           </a>
           <a 
-            href="https://youtube.com/@aksharamlitfest"
+            href="https://www.youtube.com/channel/UChhHioSp5duUN5yG9S1obpw"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
@@ -1291,7 +1395,7 @@ function Footer() {
 
 function AboutAksharamPage({ onBack }: { onBack: () => void }) {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
       <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
         <div className="max-w-4xl mx-auto">
@@ -1299,67 +1403,120 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
             onClick={onBack}
             className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
             style={{
-              backgroundColor: '#2a2a2a',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1f1f1f';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2a2a2a';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             ← Back to Home
           </button>
 
-          <h1 
+          <h1
             className="mb-8"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             About Aksharam
           </h1>
-          
-          <div style={{ fontSize: 'clamp(1rem, 2vw, 1.125rem)', lineHeight: '1.8', color: '#2a2a2a', letterSpacing: '0.005em' }}>
+
+          <div
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+            }}
+          >
             <p className="mb-6">
-              Aksharam Literature Festival is a gathering space for writers, thinkers, and readers 
-              who believe in the transformative power of words. Rooted in cultural depth and 
-              intellectual rigor, the festival serves as a platform for meaningful dialogue across 
-              languages, disciplines, and perspectives.
+              AKSHARAM is born out of a historical and cultural urgency. In an
+              era shaped by “post-truth,” where misinformation erodes public
+              discourse and lived experiences are erased from record, the
+              festival positions literature as a collective chant for truth,
+              language, and critical thought. Rooted in Kottayam — the historic
+              Land of Letters — AKSHARAM draws inspiration from the landmark
+              1957 literary conference that played a defining role in shaping
+              modern Kerala’s cultural and intellectual consciousness. After
+              seven decades, the city once again becomes a stage for ideas,
+              debates, and creative exchange. AKSHARAM brings together writers,
+              thinkers, artists, and cultural practitioners to explore
+              literature not merely as aesthetic expression, but as a political
+              and ethical act. The festival foregrounds marginalized voices,
+              forgotten languages, and suppressed narratives, asserting
+              literature as a space for rational dialogue, remembrance, and
+              dissent.
             </p>
 
-            <p className="mb-6">
-              Founded on the principle that literature is not merely an art form but a vital medium 
-              for understanding the human condition, Aksharam brings together diverse voices from 
-              around the world. The festival celebrates both established literary figures and emerging 
-              talents, creating a space where tradition meets innovation.
+            <p className="mb-6" style={{ fontWeight: "700" }}>
+              Through conversations, readings, performances, and
+              interdisciplinary encounters, AKSHARAM affirms a simple yet
+              powerful belief: letters do not accept silence. They speak,
+              resist, and endure — ensuring that no history remains incomplete.
             </p>
-
+            <h1
+              className="mb-8"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                color: "#0b0b0b",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              About MGOCSM (Malankara Orthodox Church Student Movement)
+            </h1>
             <p className="mb-6">
-              Our programming spans literary readings, panel discussions, workshops, and cultural 
-              performances, all designed to foster deep engagement with language and ideas. We believe 
-              in the power of literature to transcend boundaries and create connections across cultures, 
-              generations, and perspectives.
+              The Malankara Orthodox Church Student Movement (MGOCSM) is the
+              student wing of the Malankara Orthodox Syrian Church, committed to
+              nurturing socially responsible, intellectually curious, and
+              ethically grounded youth. Through educational, cultural, and
+              community-oriented initiatives, MGOCSM encourages students to
+              engage with questions of faith, society, justice, and service.
+              With a strong emphasis on dialogue, leadership, and social
+              awareness, MGOCSM actively participates in cultural and academic
+              platforms that foster critical thinking and inclusive
+              perspectives. Its association with AKSHARAM reflects a shared
+              commitment to knowledge, values, and the transformative power of
+              ideas and literature.
             </p>
-
+            <h1
+              className="mb-8"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                color: "#0b0b0b",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              About CMS College, Kottayam
+            </h1>
             <p className="mb-6">
-              At its core, Aksharam is committed to maintaining the highest standards of literary 
-              excellence while remaining accessible to all who share a passion for the written word. 
-              We strive to create an environment where serious intellectual inquiry coexists with the 
-              joy of discovery and the pleasure of good storytelling.
+              CMS College, Kottayam, established in 1817, is one of the oldest
+              colleges in India and a cornerstone of Kerala’s intellectual and
+              cultural history. The institution has played a pioneering role in
+              the development of modern education, printing, language, and
+              social reform in the region, earning Kottayam its reputation as
+              the “Land of Letters.” With a legacy rooted in academic excellence
+              and social engagement, CMS College continues to nurture
+              generations of thinkers, writers, educators, and leaders. Its
+              association with AKSHARAM underscores its enduring commitment to
+              literature, critical inquiry, and the cultural life of society.
             </p>
           </div>
         </div>
@@ -1369,9 +1526,10 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
   );
 }
 
-function About2026Page({ onBack }: { onBack: () => void }) {
+
+function About2026Page({ onBack, onNavigate }: { onBack: () => void; onNavigate: (page: string) => void }) {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
       <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
         <div className="max-w-4xl mx-auto">
@@ -1379,68 +1537,160 @@ function About2026Page({ onBack }: { onBack: () => void }) {
             onClick={onBack}
             className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
             style={{
-              backgroundColor: '#2a2a2a',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1f1f1f';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2a2a2a';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             ← Back to Home
           </button>
 
-          <h1 
+          <h1
             className="mb-8"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             About Aksharam 2026
           </h1>
-          
-          <div style={{ fontSize: 'clamp(1rem, 2vw, 1.125rem)', lineHeight: '1.8', color: '#2a2a2a', letterSpacing: '0.005em' }}>
-            <p className="mb-6">
-              The 2026 edition of Aksharam continues our commitment to literary excellence and 
-              cultural exploration. This year's program features conversations with acclaimed authors, 
-              emerging voices, translators, and scholars—each bringing unique insights into the 
-              evolving landscape of contemporary literature.
-            </p>
 
+          <div
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+            }}
+          >
             <p className="mb-6">
-              This year's theme explores the intersections between tradition and modernity, examining 
-              how contemporary writers engage with classical forms while forging new literary pathways. 
-              We'll delve into questions of language, identity, and storytelling in an increasingly 
-              interconnected world.
+              A century ago, Poykayil Appachan wrote of a painful absence — the
+              absence of letters that record the history of his own people.
+              Throughout history, eras have repeatedly silenced the voices of
+              those marginalized. Languages, writings, memories, and lived
+              experiences of many communities have been erased or rendered
+              invisible by structures of caste, class, gender, religion, and
+              power. Letters are more than linguistic forms; they are acts of
+              resistance against forgetting. Literature and the arts become
+              political when they listen to unheard voices and read what history
+              has chosen not to preserve. Festival of Unseen Letters is a
+              platform of remembrance — a cultural defence built with letters
+              against oblivion. It asserts that no history is complete without
+              reading what was left unseen.
             </p>
-
+            <h2
+              className="mb-8"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                color: "#0b0b0b",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Curator’s Note
+            </h2>
+            <p className="mb-2" style={{ fontWeight: "700" }}>
+              Dinu Veyil
+            </p>
             <p className="mb-6">
-              Our 2026 programming includes keynote addresses from distinguished writers, intimate 
-              conversations with emerging talents, panel discussions on pressing literary topics, 
-              and workshops designed to nurture the next generation of writers. We're particularly 
-              excited to feature voices from diverse linguistic traditions, celebrating the richness 
-              of multilingual literary expression.
+              AKSHARAM emerges from a simple but urgent question: whose letters
+              have we failed to read? History often remembers power, but forgets
+              pain, struggle, and lived experience. Festival of Unseen Letters
+              invites us to listen — to languages pushed into silence, to
+              stories that survived without recognition, to memories carried
+              through generations without archives. This festival is an attempt
+              to read literature not only as art, but as testimony. Through
+              conversations, readings, and interdisciplinary encounters,
+              AKSHARAM seeks to reclaim literature as a space of remembrance and
+              resistance.
             </p>
-
+            <button
+              onClick={() => onNavigate("about-Dinu")}
+              className="transition-all duration-300"
+              style={{
+                color: "#5b1b8d",
+                textDecoration: "underline",
+                textUnderlineOffset: "4px",
+                fontSize: "1rem",
+                letterSpacing: "0.01em",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = "0.7";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = "1";
+              }}
+            >
+              Read more
+            </button>
+            <h2
+              className="mb-8"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                color: "#0b0b0b",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Director’s Note
+            </h2>
+            <p className="mb-2" style={{ fontWeight: "700" }}>
+              Prof. Aju K. Narayanan
+            </p>
             <p className="mb-6">
-              The festival will also spotlight the vital role of translation in making literature 
-              accessible across linguistic boundaries, featuring conversations between translators 
-              and authors about the art and craft of rendering texts across languages and cultures.
+              Kottayam has long been a land shaped by letters — of printing,
+              education, movements, and ideas. AKSHARAM builds on this legacy
+              while asking contemporary questions about whose histories we
+              preserve and whose we ignore. Festival of Unseen Letters positions
+              literature and the arts as vital cultural forces that challenge
+              forgetting. As a director, I see this festival as a shared space —
+              for writers, readers, artists, and communities — to reflect,
+              converse, and imagine a more inclusive cultural memory for the
+              future.
             </p>
+            <button
+              onClick={() => onNavigate("about-Aju")}
+              className="transition-all duration-300"
+              style={{
+                color: "#5b1b8d",
+                textDecoration: "underline",
+                textUnderlineOffset: "4px",
+                fontSize: "1rem",
+                letterSpacing: "0.01em",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.opacity = "0.7";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.opacity = "1";
+              }}
+            >
+              Read more
+            </button>
           </div>
         </div>
       </section>
@@ -1449,6 +1699,147 @@ function About2026Page({ onBack }: { onBack: () => void }) {
   );
 }
 
+function AboutDinuSection({ onBack }: { onBack: () => void }) {
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
+      <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
+        <div className="max-w-4xl mx-auto">
+          <button
+            onClick={onBack}
+            className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
+            style={{
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
+            }}
+          >
+            ← Back to Home
+          </button>
+
+          <h1
+            className="mb-8"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            About Dinu Veyil
+          </h1>
+
+          <div
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+            }}
+          >
+            <p className="mb-6" style={{ fontWeight: "700" }}>
+              Curator – AKSHARAM Literature Fest
+            </p>
+            <p className="mb-6">
+              Dinu Veyil is a writer, thinker, and cultural practitioner whose
+              work engages deeply with questions of memory, marginality, and
+              resistance. Through literature, critical writing, and artistic
+              interventions, he explores voices that exist outside dominant
+              narratives. As the curator of AKSHARAM, he brings together
+              literature and allied arts as spaces for dialogue, remembrance,
+              and re-imagining histories that have long been silenced.
+            </p>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
+function AboutAjuSection({ onBack }: { onBack: () => void }) {
+  return (
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
+      <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
+        <div className="max-w-4xl mx-auto">
+          <button
+            onClick={onBack}
+            className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
+            style={{
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
+            }}
+          >
+            ← Back to Home
+          </button>
+
+          <h1
+            className="mb-8"
+            style={{
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            About Prof. Aju K. Narayanan
+          </h1>
+
+          <div
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+            }}
+          >
+            <p className="mb-6" style={{ fontWeight: "700" }}>
+              Festival Director – AKSHARAM Literature Fest
+            </p>
+            <p className="mb-6">
+              Prof. Aju K. Narayanan is an academic, writer, and cultural
+              organizer committed to expanding the role of literature in public
+              life. His work bridges scholarship, pedagogy, and artistic
+              practice, with a focus on language, society, and inclusive
+              knowledge traditions. As Festival Director, he envisions AKSHARAM
+              as a contemporary platform rooted in Kottayam’s literary legacy
+              while responding to urgent cultural and social questions of our
+              time.
+            </p>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+}
 function AllSpeakersPage({ onBack }: { onBack: () => void }) {
   const speakers = [
     {
