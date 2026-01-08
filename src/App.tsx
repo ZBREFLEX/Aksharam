@@ -20,10 +20,10 @@ export default function App() {
     return <About2026Page onBack={() => navigateTo('home')} onNavigate={navigateTo} />;
   }
   if (currentPage === 'about-Dinu') {
-    return <AboutDinuSection onBack={() => navigateTo('home')} />;
+    return <AboutDinuSection onBack={() => navigateTo('about-2026')} />;
   }
   if (currentPage === 'about-Aju') {
-    return <AboutAjuSection onBack={() => navigateTo('home')} />;
+    return <AboutAjuSection onBack={() => navigateTo('about-2026')} />;
   }
 
   if (currentPage === 'all-speakers') {
@@ -44,8 +44,6 @@ export default function App() {
       <About2026Section onNavigate={navigateTo} />
       <SponsorsSection onNavigate={navigateTo} />
       <SpeakersSection onNavigate={navigateTo} />
-      <AboutDinuSection onNavigate={navigateTo}/>
-      <AboutAjuSection onNavigate={navigateTo}/>
       <ContactSection />
       <SocialSection />
       <Footer />
