@@ -816,22 +816,22 @@ function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void })
             onClick={() => onNavigate('all-sponsors')}
             className="px-6 py-3 transition-all duration-300"
             style={{
-              backgroundColor: '#5b1b8d',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+             backgroundColor: '#f0efeb',            // cream fill
+    color: '#0C3B2E',                       // dark green text
+    textDecoration: 'none',
+    fontSize: '1rem',
+    fontWeight: 600,
+    letterSpacing: '0.01em',
+    borderRadius: '99px',                 // full pill shape
+    border: '2px solid #000000',            // thick dark border
+    whiteSpace: 'nowrap'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#4a1570';
+              e.currentTarget.style.backgroundColor = '#FFE8B3';
               e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#5b1b8d';
+              e.currentTarget.style.backgroundColor = '#f0efeb';
               e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
             }}
           >
@@ -1092,22 +1092,22 @@ function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void })
             onClick={() => onNavigate('all-speakers')}
             className="px-6 py-3 transition-all duration-300"
             style={{
-              backgroundColor: '#5b1b8d',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+               backgroundColor: '#f0efeb',            // cream fill
+    color: '#0C3B2E',                       // dark green text
+    textDecoration: 'none',
+    fontSize: '1rem',
+    fontWeight: 600,
+    letterSpacing: '0.01em',
+    borderRadius: '99px',                 // full pill shape
+    border: '2px solid #000000',            // thick dark border
+    whiteSpace: 'nowrap'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#4a1570';
+              e.currentTarget.style.backgroundColor = '#FFE8B3';
               e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#5b1b8d';
+              e.currentTarget.style.backgroundColor = '#f0efeb';
               e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
             }}
           >
