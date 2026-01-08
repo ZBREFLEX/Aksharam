@@ -353,7 +353,7 @@ function HeroSection() {
         style={{ pointerEvents: 'auto' }}
       >
         <a
-          href="https://instagram.com/aksharamlitfest"
+          href="https://www.instagram.com/aksharamlitfest/"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 transition-all duration-300"
@@ -376,7 +376,7 @@ function HeroSection() {
           <Instagram size={20} strokeWidth={1.5} />
         </a>
         <a
-          href="https://facebook.com/aksharamlitfest"
+          href="https://www.facebook.com/profile.php?id=61585870871075"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 transition-all duration-300"
@@ -399,7 +399,7 @@ function HeroSection() {
           <Facebook size={20} strokeWidth={1.5} />
         </a>
         <a
-          href="https://youtube.com/@aksharamlitfest"
+          href="https://www.youtube.com/channel/UChhHioSp5duUN5yG9S1obpw"
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 transition-all duration-300"
@@ -435,7 +435,7 @@ function HeroSection() {
           <img
             src={kottayamIllustration}
             alt="Cultural illustration"
-            className="w-full h-auto opacity-50"
+            className="w-full h-auto opacity-55"
             style={{ mixBlendMode: 'multiply' }}
           />
         </div>
@@ -444,13 +444,14 @@ function HeroSection() {
       {/* Hero text */}
       <div className="relative z-10 text-center px-6 max-w-4xl">
         <h1 
-          className="mb-6"
+          className="mb-5"
           style={{ 
+            marginTop: "420px",
             fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+            fontSize: 'clamp(2.5rem, 4vw, 5rem)',
             lineHeight: '1.2',
             color: '#0b0b0b',
-            letterSpacing: '-0.02em'
+            letterSpacing: '-0.02em',
           }}
         >
           Aksharam Literature Festival
