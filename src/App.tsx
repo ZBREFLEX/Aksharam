@@ -461,7 +461,7 @@ function HeroSection() {
             letterSpacing: '-0.02em',
           }}
         >
-          Aksharam Literature Festival
+          Festival of Art & Literature
         </h1>
         <p 
           style={{ 
@@ -808,7 +808,7 @@ function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void })
         </div>
 
         {/* View More Sponsors button */}
-        <div className="text-center mt-8 md:mt-12">
+        <div className="text-center mt-0">
           <button
             onClick={() => onNavigate('all-sponsors')}
             className="px-6 py-3 transition-all duration-300"
@@ -854,7 +854,7 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
       className="group transition-all duration-500 ease-out"
       style={{
         borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-        paddingBottom: '2rem'
+        paddingBottom: '1rem'
       }}
     >
       <div 
@@ -1084,7 +1084,7 @@ function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void })
         </div>
 
         {/* View More Speakers button */}
-        <div className="text-center mt-8 md:mt-12">
+        <div className="text-center mt-0">
           <button
             onClick={() => onNavigate('all-speakers')}
             className="px-6 py-3 transition-all duration-300"
@@ -1130,7 +1130,7 @@ function SpeakerCard({ speaker }: { speaker: Speaker }) {
       className="group transition-all duration-500 ease-out"
       style={{
         borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-        paddingBottom: '2rem'
+        paddingBottom: '1rem'
       }}
     >
       <div 
