@@ -4,6 +4,20 @@ import wavePattern from './assets/6e7c00379a0f0ced59eb2110e859806c60ff0d58.webp'
 import kottayamIllustration from './assets/60a054ad3b5c1dea8dcf5b82e985297f515da54d.webp';
 import aksharamLogo from './assets/409a809ee95bee3b3e5aa6743e1dcac95f47391a.webp';
 
+const Whatsapp = ({ size = 24, color = "currentColor", ...props }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill={color}
+    data-name="Layer 1"
+    {...props}
+  >
+    <path d="M20.52,3.48A11.86,11.86,0,0,0,1,11.89a11.75,11.75,0,0,0,1.52,5.92L0,24l6.3-1.66A11.85,11.85,0,0,0,12.05,24h0A11.87,11.87,0,0,0,20.52,3.48ZM12.05,22h0a9.85,9.85,0,0,1-5-.18l-.36-.21-3.74,1,.99-3.64-.23-.37A9.82,9.82,0,0,1,12.05,2a9.9,9.9,0,0,1,7,16.89A9.82,9.82,0,0,1,12.05,22Zm5.42-7.41c-.3-.15-1.76-.87-2-.97s-.47-.15-.67.15-.77,1-.94,1.17-.35.22-.64.07a8,8,0,0,1-2.39-1.47,8.9,8.9,0,0,1-1.65-2.06c-.18-.3-.02-.46.13-.61s.3-.34.45-.51a2,2,0,0,0,.29-.5.94.94,0,0,0,0-.52c-.08-.15-.67-1.61-.92-2.21s-.48-.5-.67-.51H8.31a1.68,1.68,0,0,0-1.21.57A4.67,4.67,0,0,0,6,10.61a8.12,8.12,0,0,0,1.56,4.3,18.52,18.52,0,0,0,7.13,6.3c2.7,1.06,3.25.85,3.84,1a4,4,0,0,0,2.69-1.35,3.28,3.28,0,0,0,.56-2.18C21.78,18.53,21.58,18.45,21.29,18.31Z" />
+  </svg>
+);
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
 
@@ -391,6 +405,29 @@ function HeroSection() {
           }}
         >
           <Youtube size={20} strokeWidth={1.5} />
+        </a>
+        <a
+          href="https://whatsapp.com/channel/0029VbBZliAI7BeHIDr6sH0K"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 transition-all duration-300"
+          style={{ 
+            color: '#2a2a2a',
+            backgroundColor: 'rgba(240, 239, 235, 0.6)',
+            borderRadius: '50%',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.9)';
+            e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.12)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.6)';
+            e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
+          }}
+        >
+          <Whatsapp size={20} strokeWidth={1.5} />
         </a>
 
         {/* Mobile Register Buttons */}
@@ -1375,6 +1412,21 @@ function SocialSection() {
           >
             <Youtube size={20} strokeWidth={1.5} />
             <span>YouTube</span>
+          </a>
+          <a 
+            href="https://whatsapp.com/channel/0029VbBZliAI7BeHIDr6sH0K"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 transition-opacity hover:opacity-70"
+            style={{
+              color: '#2a2a2a',
+              textDecoration: 'none',
+              fontSize: '1rem',
+              letterSpacing: '0.01em'
+            }}
+          >
+            <Whatsapp size={20} />
+            <span>WhatsApp</span>
           </a>
         </div>
       </div>
