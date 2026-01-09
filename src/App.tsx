@@ -261,43 +261,7 @@ function Navbar() {
               Contact
             </a>
 
-            {/* Mobile Register Buttons */}
-            <div className="flex flex-col gap-3 pt-2">
-              <a
-                href="https://forms.google.com/sponsor"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-3 text-center transition-all duration-300"
-                style={{
-                  backgroundColor: "#5b1b8d",
-                  color: "#f0efeb",
-                  textDecoration: "none",
-                  fontSize: "0.875rem",
-                  letterSpacing: "0.02em",
-                  borderRadius: "2px",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                Register as Sponsor
-              </a>
-              <a
-                href="https://forms.google.com/volunteer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-3 text-center transition-all duration-300"
-                style={{
-                  backgroundColor: "#2a2a2a",
-                  color: "#f0efeb",
-                  textDecoration: "none",
-                  fontSize: "0.875rem",
-                  letterSpacing: "0.02em",
-                  borderRadius: "2px",
-                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                Register as Volunteer
-              </a>
-            </div>
+
           </div>
         </div>
       )}
@@ -354,9 +318,9 @@ function HeroSection() {
         />
       </div>
 
-      {/* Social media icons - top right */}
+      {/* Social and Register Buttons - top right */}
       <div 
-        className="absolute top-24 md:top-28 right-4 md:right-8 z-20 flex gap-3 md:gap-4"
+        className="absolute top-24 md:top-28 right-4 md:right-8 z-20 flex items-center gap-3 md:gap-4 flex-wrap justify-end"
         style={{ pointerEvents: 'auto' }}
       >
         <a
@@ -427,6 +391,48 @@ function HeroSection() {
           }}
         >
           <Youtube size={20} strokeWidth={1.5} />
+        </a>
+
+        {/* Mobile Register Buttons */}
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfvWw-IE2YNd2EDHk5X5uIWMOYT79MnxWAwRSmQIb_VATeH2Q/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lg:hidden px-4 py-2 transition-all duration-300"
+          style={{
+            backgroundColor: "rgba(240, 239, 235, 0.8)",
+            color: "#0C3B2E",
+            textDecoration: "none",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            borderRadius: "99px",
+            border: "1px solid #000000",
+            backdropFilter: "blur(4px)",
+            whiteSpace: "nowrap",
+             boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}
+        >
+          Register as Sponsor
+        </a>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lg:hidden px-4 py-2 transition-all duration-300"
+          style={{
+            backgroundColor: "rgba(240, 239, 235, 0.8)",
+            color: "#0C3B2E",
+            textDecoration: "none",
+            fontSize: "0.75rem",
+            fontWeight: 600,
+            borderRadius: "99px",
+             border: "1px solid #000000",
+            backdropFilter: "blur(4px)",
+            whiteSpace: "nowrap",
+            boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+          }}
+        >
+          Register as Volunteer
         </a>
       </div>
 
