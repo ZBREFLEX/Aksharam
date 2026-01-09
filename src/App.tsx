@@ -41,9 +41,9 @@ export default function App() {
       <Navbar />
       <HeroSection />
       <AboutSection onNavigate={navigateTo} />
-      <About2026Section onNavigate={navigateTo} />
+      {/* <About2026Section onNavigate={navigateTo} />
       <SponsorsSection onNavigate={navigateTo} />
-      <SpeakersSection onNavigate={navigateTo} />
+      <SpeakersSection onNavigate={navigateTo} /> */}
       <ContactSection />
       <SocialSection />
       <Footer />
@@ -125,7 +125,7 @@ function Navbar() {
               letterSpacing: "0.02em",
             }}
           >
-            Contact
+            Enquiries
           </a>
 
           {/* Register Buttons */}
@@ -152,7 +152,7 @@ function Navbar() {
               e.currentTarget.style.backgroundColor = "#f0efeb";
             }}
           >
-            Register as Sponsor
+            Partner Registration
           </a>
 
           <a
@@ -178,7 +178,7 @@ function Navbar() {
               e.currentTarget.style.backgroundColor = "#f0efeb";
             }}
           >
-            Register as Volunteer
+            Volunteer / Attentive
           </a>
         </div>
 
@@ -258,7 +258,7 @@ function Navbar() {
                 padding: "8px 0",
               }}
             >
-              Contact
+              Enquiries
             </a>
 
 
@@ -461,13 +461,13 @@ function HeroSection() {
           style={{ 
             marginTop: "420px",
             fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(2.5rem, 4vw, 5rem)',
+            fontSize: 'clamp(2.5rem, 3vw, 5rem)',
             lineHeight: '1.2',
             color: '#0b0b0b',
             letterSpacing: '-0.02em',
           }}
         >
-          Festival of Art & Literature
+          Aksharam Literature Festival
         </h1>
         <p 
           style={{ 
@@ -477,7 +477,7 @@ function HeroSection() {
             letterSpacing: '0.01em'
           }}
         >
-          A celebration of language, thought, and culture
+          Festival of Art & Literature
         </p>
       </div>
 
@@ -1227,11 +1227,11 @@ function ContactSection() {
               letterSpacing: '-0.01em'
             }}
           >
-            Contact
+            Enquiries
           </h2>
           <div className="space-y-6">
             <div className="flex flex-col gap-1">
-              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>General Enquiries</span>
+              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}></span>
               <a 
                 href="mailto:aksharamlitfest@gmail.com"
                 style={{
@@ -1250,7 +1250,7 @@ function ContactSection() {
             </div>
             
             <div className="flex flex-col gap-1">
-              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>Contact Number</span>
+              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}></span>
               <a 
                 href="mailto:office@aksharamlitfest.com"
                 style={{
@@ -1270,16 +1270,22 @@ function ContactSection() {
 
             <div className="flex flex-col gap-1 pt-4">
               <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>Location</span>
-              <p 
+              <a 
+                href="https://www.google.com/maps/search/?api=1&query=CMS+College,+Kottayam,+Kerala+686001"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-70 transition-opacity"
                 style={{
                   fontSize: '1rem',
                   lineHeight: '1.6',
-                  color: '#2a2a2a'
+                  color: '#2a2a2a',
+                  textDecoration: 'none',
+                  display: 'block'
                 }}
               >
                 CMS College,<br/>
                 Kottayam, Kerala 686001
-              </p>
+              </a>
             </div>
           </div>
         </div>
