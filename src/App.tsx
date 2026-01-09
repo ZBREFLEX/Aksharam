@@ -55,12 +55,12 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav 
+    <nav
       className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 border-b"
-      style={{ 
-        backgroundColor: 'rgba(240, 239, 235, 0.98)',
-        borderColor: 'rgba(11, 11, 11, 0.1)',
-        backdropFilter: 'blur(10px)'
+      style={{
+        backgroundColor: "rgba(240, 239, 235, 0.98)",
+        borderColor: "rgba(11, 11, 11, 0.1)",
+        backdropFilter: "blur(10px)",
       }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -70,117 +70,116 @@ function Navbar() {
             src={aksharamLogo}
             alt="Aksharam"
             className="h-10 md:h-14 w-auto"
-            style={{ 
-              filter: 'contrast(1.1) brightness(0.95)',
-              transition: 'opacity 0.3s ease'
+            style={{
+              filter: "contrast(1.1) brightness(0.95)",
+              transition: "opacity 0.3s ease",
             }}
           />
         </a>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-6 xl:gap-8 items-center">
-          <a 
+          <a
             href="#home"
             className="transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
             }}
           >
             Home
           </a>
-          <a 
+          <a
             href="#about"
             className="transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
             }}
           >
             About
           </a>
-          <a 
+          <a
             href="#sponsors"
             className="transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
             }}
           >
             Sponsors
           </a>
-          <a 
+          <a
             href="#contact"
             className="transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
             }}
           >
             Contact
           </a>
-          
+
           {/* Register Buttons */}
-         <a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSfvWw-IE2YNd2EDHk5X5uIWMOYT79MnxWAwRSmQIb_VATeH2Q/viewform?usp=publish-editor"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-6 py-2 transition-all duration-300"
-  style={{
-    backgroundColor: '#f0efeb',            // cream fill
-    color: '#0C3B2E',                       // dark green text
-    textDecoration: 'none',
-    fontSize: '1rem',
-    fontWeight: 600,
-    letterSpacing: '0.01em',
-    borderRadius: '99px',                 // full pill shape
-    border: '2px solid #000000',            // thick dark border
-    whiteSpace: 'nowrap'
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.backgroundColor = '#FFE8B3'; // slightly deeper cream
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.backgroundColor = '#f0efeb';
-  }}
->
-  Register as Sponsor
-</a>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfvWw-IE2YNd2EDHk5X5uIWMOYT79MnxWAwRSmQIb_VATeH2Q/viewform?usp=publish-editor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 transition-all duration-300"
+            style={{
+              backgroundColor: "#f0efeb", // cream fill
+              color: "#0C3B2E", // dark green text
+              textDecoration: "none",
+              fontSize: "1rem",
+              fontWeight: 600,
+              letterSpacing: "0.01em",
+              borderRadius: "99px", // full pill shape
+              border: "2px solid #000000", // thick dark border
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#FFE8B3"; // slightly deeper cream
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#f0efeb";
+            }}
+          >
+            Register as Sponsor
+          </a>
 
-         <a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-6 py-2 transition-all duration-300"
-  style={{
-    backgroundColor: '#f0efeb',            // same cream fill
-    color: '#0C3B2E',                       // same dark green text
-    textDecoration: 'none',
-    fontSize: '1rem',
-    fontWeight: 600,
-    letterSpacing: '0.01em',
-    borderRadius: '99px',                 // pill shape
-    border: '2px solid #000000',            // thick black outline
-    whiteSpace: 'nowrap'
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.backgroundColor = '#FFE8B3'; // hover cream
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.backgroundColor = '#f0efeb';
-  }}
->
-  Register as Volunteer
-</a>
-
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 transition-all duration-300"
+            style={{
+              backgroundColor: "#f0efeb", // same cream fill
+              color: "#0C3B2E", // same dark green text
+              textDecoration: "none",
+              fontSize: "1rem",
+              fontWeight: 600,
+              letterSpacing: "0.01em",
+              borderRadius: "99px", // pill shape
+              border: "2px solid #000000", // thick black outline
+              whiteSpace: "nowrap",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#FFE8B3"; // hover cream
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#f0efeb";
+            }}
+          >
+            Register as Volunteer
+          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -188,10 +187,10 @@ function Navbar() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden p-2 transition-opacity hover:opacity-70"
           style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            color: '#2a2a2a'
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            color: "#2a2a2a",
           }}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -200,68 +199,68 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div 
+        <div
           className="lg:hidden mt-4 pb-4 border-t"
-          style={{ borderColor: 'rgba(11, 11, 11, 0.1)' }}
+          style={{ borderColor: "rgba(11, 11, 11, 0.1)" }}
         >
           <div className="flex flex-col gap-4 pt-4">
-            <a 
+            <a
               href="#home"
               onClick={() => setIsMenuOpen(false)}
               className="transition-opacity hover:opacity-70"
               style={{
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                fontSize: '1rem',
-                letterSpacing: '0.02em',
-                padding: '8px 0'
+                color: "#2a2a2a",
+                textDecoration: "none",
+                fontSize: "1rem",
+                letterSpacing: "0.02em",
+                padding: "8px 0",
               }}
             >
               Home
             </a>
-            <a 
+            <a
               href="#about"
               onClick={() => setIsMenuOpen(false)}
               className="transition-opacity hover:opacity-70"
               style={{
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                fontSize: '1rem',
-                letterSpacing: '0.02em',
-                padding: '8px 0'
+                color: "#2a2a2a",
+                textDecoration: "none",
+                fontSize: "1rem",
+                letterSpacing: "0.02em",
+                padding: "8px 0",
               }}
             >
               About
             </a>
-            <a 
+            <a
               href="#sponsors"
               onClick={() => setIsMenuOpen(false)}
               className="transition-opacity hover:opacity-70"
               style={{
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                fontSize: '1rem',
-                letterSpacing: '0.02em',
-                padding: '8px 0'
+                color: "#2a2a2a",
+                textDecoration: "none",
+                fontSize: "1rem",
+                letterSpacing: "0.02em",
+                padding: "8px 0",
               }}
             >
               Sponsors
             </a>
-            <a 
+            <a
               href="#contact"
               onClick={() => setIsMenuOpen(false)}
               className="transition-opacity hover:opacity-70"
               style={{
-                color: '#2a2a2a',
-                textDecoration: 'none',
-                fontSize: '1rem',
-                letterSpacing: '0.02em',
-                padding: '8px 0'
+                color: "#2a2a2a",
+                textDecoration: "none",
+                fontSize: "1rem",
+                letterSpacing: "0.02em",
+                padding: "8px 0",
               }}
             >
               Contact
             </a>
-            
+
             {/* Mobile Register Buttons */}
             <div className="flex flex-col gap-3 pt-2">
               <a
@@ -270,13 +269,13 @@ function Navbar() {
                 rel="noopener noreferrer"
                 className="px-4 py-3 text-center transition-all duration-300"
                 style={{
-                  backgroundColor: '#5b1b8d',
-                  color: '#f0efeb',
-                  textDecoration: 'none',
-                  fontSize: '0.875rem',
-                  letterSpacing: '0.02em',
-                  borderRadius: '2px',
-                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+                  backgroundColor: "#5b1b8d",
+                  color: "#f0efeb",
+                  textDecoration: "none",
+                  fontSize: "0.875rem",
+                  letterSpacing: "0.02em",
+                  borderRadius: "2px",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 Register as Sponsor
@@ -287,13 +286,13 @@ function Navbar() {
                 rel="noopener noreferrer"
                 className="px-4 py-3 text-center transition-all duration-300"
                 style={{
-                  backgroundColor: '#2a2a2a',
-                  color: '#f0efeb',
-                  textDecoration: 'none',
-                  fontSize: '0.875rem',
-                  letterSpacing: '0.02em',
-                  borderRadius: '2px',
-                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+                  backgroundColor: "#2a2a2a",
+                  color: "#f0efeb",
+                  textDecoration: "none",
+                  fontSize: "0.875rem",
+                  letterSpacing: "0.02em",
+                  borderRadius: "2px",
+                  boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                 }}
               >
                 Register as Volunteer
@@ -347,8 +346,8 @@ function HeroSection() {
           style={{
             backgroundImage: `url(${wavePattern})`,
             backgroundRepeat: 'repeat-x',
-            backgroundSize: 'auto 100%',
-            backgroundPosition: 'center',
+            backgroundSize: 'auto 60%',
+            backgroundPosition: 'center 80%',
             opacity: 0.12,
             willChange: 'transform'
           }}
@@ -434,7 +433,7 @@ function HeroSection() {
       {/* Floating illustration */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div 
-          className="w-full max-w-3xl px-6"
+          className="w-full max-w-4xl px-6"
           style={{
             filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.03))',
             animation: 'float 8s ease-in-out infinite'
