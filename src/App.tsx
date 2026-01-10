@@ -266,7 +266,7 @@ function Navbar() {
             >
               About
             </a>
-            <a
+            {/* <a
               href="#sponsors"
               onClick={() => setIsMenuOpen(false)}
               className="transition-opacity hover:opacity-70"
@@ -279,7 +279,7 @@ function Navbar() {
               }}
             >
               Sponsors
-            </a>
+            </a> */}
             <a
               href="#contact"
               onClick={() => setIsMenuOpen(false)}
