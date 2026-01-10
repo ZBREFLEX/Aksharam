@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import { Instagram, Facebook, Youtube, Menu, X } from 'lucide-react';
-import wavePattern from './assets/6e7c00379a0f0ced59eb2110e859806c60ff0d58.webp';
-import kottayamIllustration from './assets/60a054ad3b5c1dea8dcf5b82e985297f515da54d.webp';
-import aksharamLogo from './assets/409a809ee95bee3b3e5aa6743e1dcac95f47391a.webp';
+import { useEffect, useRef, useState } from "react";
+import { Instagram, Facebook, Youtube, Menu, X } from "lucide-react";
+import wavePattern from "./assets/6e7c00379a0f0ced59eb2110e859806c60ff0d58.webp";
+import kottayamIllustration from "./assets/60a054ad3b5c1dea8dcf5b82e985297f515da54d.webp";
+import aksharamLogo from "./assets/409a809ee95bee3b3e5aa6743e1dcac95f47391a.webp";
+import abiImage from "./assets/abi_john_mathew.jpg";
 
 const Whatsapp = ({ size = 24, color = "currentColor", ...props }) => (
   <svg
@@ -18,39 +19,47 @@ const Whatsapp = ({ size = 24, color = "currentColor", ...props }) => (
 );
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
+  const [currentPage, setCurrentPage] = useState<string>("home");
 
   const navigateTo = (page: string) => {
     setCurrentPage(page);
     window.scrollTo(0, 0);
   };
 
-  if (currentPage === 'about-aksharam') {
-    return <AboutAksharamPage onBack={() => navigateTo('home')} onNavigate={navigateTo} />;
+  if (currentPage === "about-aksharam") {
+    return (
+      <AboutAksharamPage
+        onBack={() => navigateTo("home")}
+        onNavigate={navigateTo}
+      />
+    );
   }
 
-  if (currentPage === 'about-2026') {
-    return <About2026Page onBack={() => navigateTo('home')} onNavigate={navigateTo} />;
+  if (currentPage === "about-2026") {
+    return (
+      <About2026Page
+        onBack={() => navigateTo("home")}
+        onNavigate={navigateTo}
+      />
+    );
   }
-  if (currentPage === 'about-Dinu') {
-    return <AboutDinuSection onBack={() => navigateTo('about-2026')} />;
+  if (currentPage === "about-Dinu") {
+    return <AboutDinuSection onBack={() => navigateTo("about-2026")} />;
   }
-  if (currentPage === 'about-Aju') {
-    return <AboutAjuSection onBack={() => navigateTo('about-2026')} />;
+  if (currentPage === "about-Aju") {
+    return <AboutAjuSection onBack={() => navigateTo("about-2026")} />;
   }
 
-  if (currentPage === 'all-speakers') {
-    return <AllSpeakersPage onBack={() => navigateTo('home')} />;
+  if (currentPage === "all-speakers") {
+    return <AllSpeakersPage onBack={() => navigateTo("home")} />;
   }
 
-  if (currentPage === 'all-sponsors') {
-    return <AllSponsorsPage onBack={() => navigateTo('home')} />;
+  if (currentPage === "all-sponsors") {
+    return <AllSponsorsPage onBack={() => navigateTo("home")} />;
   }
-  
- 
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
       <HeroSection />
       <AboutSection onNavigate={navigateTo} />
@@ -116,7 +125,7 @@ function Navbar() {
           >
             About
           </a>
-          <a
+          {/* <a
             href="#sponsors"
             className="transition-opacity hover:opacity-70"
             style={{
@@ -128,6 +137,18 @@ function Navbar() {
           >
             Sponsors
           </a>
+          <a
+            href="#speakers"
+            className="transition-opacity hover:opacity-70"
+            style={{
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+            }}
+          >
+            Speakers
+          </a> */}
           <a
             href="#contact"
             className="transition-opacity hover:opacity-70"
@@ -148,7 +169,7 @@ function Navbar() {
             rel="noopener noreferrer"
             className="px-6 py-2 transition-all duration-300"
             style={{
-              backgroundColor: "#f0efeb", // cream fill
+              backgroundColor: "#ffffffff", // cream fill
               color: "#0C3B2E", // dark green text
               textDecoration: "none",
               fontSize: "1rem",
@@ -159,12 +180,12 @@ function Navbar() {
               whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFE8B3"; // slightly deeper cream
+              e.currentTarget.style.backgroundColor = "#faf2e5ff"; // slightly deeper cream
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#f0efeb";
+              e.currentTarget.style.backgroundColor = "#ffffffff";
             }}
-          >
+          > 
             Partner Registration
           </a>
 
@@ -174,7 +195,7 @@ function Navbar() {
             rel="noopener noreferrer"
             className="px-6 py-2 transition-all duration-300"
             style={{
-              backgroundColor: "#f0efeb", // same cream fill
+              backgroundColor: "#ffffffff", // same cream fill
               color: "#0C3B2E", // same dark green text
               textDecoration: "none",
               fontSize: "1rem",
@@ -185,10 +206,10 @@ function Navbar() {
               whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#FFE8B3"; // hover cream
+              e.currentTarget.style.backgroundColor = "#faf2e5ff"; // hover cream
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#f0efeb";
+              e.currentTarget.style.backgroundColor = "#ffffffff";
             }}
           >
             Volunteer / Attendee
@@ -273,8 +294,6 @@ function Navbar() {
             >
               Enquiries
             </a>
-
-
           </div>
         </div>
       )}
@@ -295,11 +314,11 @@ function HeroSection() {
     const animate = () => {
       position -= 0.15;
       waveElement.style.transform = `translateX(${position}px)`;
-      
+
       if (position <= -100) {
         position = 0;
       }
-      
+
       animationFrame = requestAnimationFrame(animate);
     };
 
@@ -311,9 +330,15 @@ function HeroSection() {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
       {/* Base background */}
-      <div className="absolute inset-0" style={{ backgroundColor: '#f0efeb' }} />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: "#f0efeb" }}
+      />
 
       {/* Animated wave background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -322,39 +347,39 @@ function HeroSection() {
           className="absolute inset-0 w-[200%] h-full"
           style={{
             backgroundImage: `url(${wavePattern})`,
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: 'auto 60%',
-            backgroundPosition: 'center 80%',
+            backgroundRepeat: "repeat-x",
+            backgroundSize: "auto 60%",
+            backgroundPosition: "center 80%",
             opacity: 0.12,
-            willChange: 'transform'
+            willChange: "transform",
           }}
         />
       </div>
 
       {/* Social and Register Buttons - top right */}
-      <div 
-        className="absolute top-24 md:top-28 left-4 md:left-auto md:right-8 z-20 flex flex-col items-start md:items-end gap-3 md:gap-4 pointer-events-auto"
-      >
+      <div className="absolute top-24 md:top-28 left-4 md:left-auto md:right-8 z-20 flex flex-col items-start md:items-end gap-3 md:gap-4 pointer-events-auto">
         <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-start md:justify-end">
           <a
             href="https://www.instagram.com/aksharamlitfest/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 transition-all duration-300"
-            style={{ 
-              color: '#2a2a2a',
-              backgroundColor: 'rgba(240, 239, 235, 0.6)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            style={{
+              color: "#2a2a2a",
+              backgroundColor: "rgba(240, 239, 235, 0.6)",
+              borderRadius: "50%",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.9)';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.12)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.9)";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.12)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.6)';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.6)";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.08)";
             }}
           >
             <Instagram size={20} strokeWidth={1.5} />
@@ -364,20 +389,22 @@ function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 transition-all duration-300"
-            style={{ 
-              color: '#2a2a2a',
-              backgroundColor: 'rgba(240, 239, 235, 0.6)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            style={{
+              color: "#2a2a2a",
+              backgroundColor: "rgba(240, 239, 235, 0.6)",
+              borderRadius: "50%",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.9)';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.12)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.9)";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.12)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.6)';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.6)";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.08)";
             }}
           >
             <Facebook size={20} strokeWidth={1.5} />
@@ -387,20 +414,22 @@ function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 transition-all duration-300"
-            style={{ 
-              color: '#2a2a2a',
-              backgroundColor: 'rgba(240, 239, 235, 0.6)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            style={{
+              color: "#2a2a2a",
+              backgroundColor: "rgba(240, 239, 235, 0.6)",
+              borderRadius: "50%",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.9)';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.12)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.9)";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.12)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.6)';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.6)";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.08)";
             }}
           >
             <Youtube size={20} strokeWidth={1.5} />
@@ -410,20 +439,22 @@ function HeroSection() {
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 transition-all duration-300"
-            style={{ 
-              color: '#2a2a2a',
-              backgroundColor: 'rgba(240, 239, 235, 0.6)',
-              borderRadius: '50%',
-              backdropFilter: 'blur(10px)',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)'
+            style={{
+              color: "#2a2a2a",
+              backgroundColor: "rgba(240, 239, 235, 0.6)",
+              borderRadius: "50%",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.9)';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.12)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.9)";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.12)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(240, 239, 235, 0.6)';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.08)';
+              e.currentTarget.style.backgroundColor =
+                "rgba(240, 239, 235, 0.6)";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.08)";
             }}
           >
             <Whatsapp size={20} strokeWidth={1.5} />
@@ -447,7 +478,7 @@ function HeroSection() {
               border: "1px solid #000000",
               backdropFilter: "blur(4px)",
               whiteSpace: "nowrap",
-              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
           >
             Volunteer / Attendee
@@ -467,7 +498,7 @@ function HeroSection() {
               border: "1px solid #000000",
               backdropFilter: "blur(4px)",
               whiteSpace: "nowrap",
-               boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
+              boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
           >
             Partner Registration
@@ -477,43 +508,43 @@ function HeroSection() {
 
       {/* Floating illustration */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div 
+        <div
           className="w-full max-w-4xl px-6"
           style={{
-            filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.03))',
-            animation: 'float 8s ease-in-out infinite'
+            filter: "drop-shadow(0 8px 24px rgba(0, 0, 0, 0.03))",
+            animation: "float 8s ease-in-out infinite",
           }}
         >
           <img
             src={kottayamIllustration}
             alt="Cultural illustration"
             className="w-full h-auto opacity-55"
-            style={{ mixBlendMode: 'multiply' }}
+            style={{ mixBlendMode: "multiply" }}
           />
         </div>
       </div>
 
       {/* Hero text */}
       <div className="relative z-10 text-center px-6 max-w-4xl">
-        <h1 
+        <h1
           className="mb-5"
-          style={{ 
+          style={{
             marginTop: "420px",
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(2.5rem, 3vw, 5rem)',
-            lineHeight: '1.2',
-            color: '#0b0b0b',
-            letterSpacing: '-0.02em',
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(2.5rem, 3vw, 5rem)",
+            lineHeight: "1.2",
+            color: "#0b0b0b",
+            letterSpacing: "-0.02em",
           }}
         >
           Aksharam Literature Festival
         </h1>
-        <p 
-          style={{ 
-            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            lineHeight: '1.6',
-            color: '#2a2a2a',
-            letterSpacing: '0.01em'
+        <p
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.5rem)",
+            lineHeight: "1.6",
+            color: "#2a2a2a",
+            letterSpacing: "0.01em",
           }}
         >
           Festival of Art & Literature
@@ -536,64 +567,76 @@ function HeroSection() {
 
 function AboutSection({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
-    <section id="about" className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
+    <section
+      id="about"
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
       <div className="max-w-3xl mx-auto">
-        <h2 
+        <h2
           className="mb-6 md:mb-8"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            color: '#0b0b0b',
-            letterSpacing: '-0.01em'
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            color: "#0b0b0b",
+            letterSpacing: "-0.01em",
           }}
         >
           About Aksharam
         </h2>
-        <p 
+        <p
           className="mb-6"
           style={{
-            fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-            lineHeight: '1.8',
-            color: '#2a2a2a',
-            letterSpacing: '0.005em',
-            fontWeight: "500", 
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+            fontWeight: "500",
+            textAlign: "justify",
           }}
         >
-          AKSHARAM is a contemporary literature festival that reclaims letters as acts of truth, memory, and resistance.
+          AKSHARAM: a literature festival aiming to unite society & reclaim art
+          as an act of truth, resistance, and resilience.
         </p>
-        <p 
+        <p
           className="mb-6"
           style={{
-            fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-            lineHeight: '1.8',
-            color: '#2a2a2a',
-            letterSpacing: '0.005em',
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+            textAlign: "justify",
           }}
         >
-          In an era shaped by “post-truth,” AKSHARAM stands as a collective chant for truth, language, and critical thought. Rooted in Kottayam, the historic Land of Letters, the festival draws inspiration from the landmark 1957 literary conference that shaped modern Kerala’s cultural consciousness.
-AKSHARAM brings together writers, thinkers, and artists to explore literature as a voice for the marginalized and as a space for rational, cultural dialogue. After seven decades, a stage for ideas, debate, and creative exchange rises again in Kottayam.
-Letters are noisy. They refuse silence, always.
-
+          In an era shaped by “post-truth,” AKSHARAM stands as a collective
+          chant for truth, language, and critical thought. Rooted in Kottayam,
+          the historic Land of Letters, the festival draws inspiration from the
+          landmark 1957 literary conference that shaped modern Kerala’s cultural
+          consciousness. AKSHARAM brings together writers, thinkers, and artists
+          to explore literature as a voice for the marginalized and as a space
+          for rational, cultural dialogue. After seven decades, a stage for
+          ideas, debate, and creative exchange rises again in Kottayam. Letters
+          are noisy. They refuse silence, always.
         </p>
         <button
-          onClick={() => onNavigate('about-aksharam')}
+          onClick={() => onNavigate("about-aksharam")}
           className="transition-all duration-300"
           style={{
-            color: '#5b1b8d',
-            textDecoration: 'underline',
-            textUnderlineOffset: '4px',
-            fontSize: '1rem',
-            letterSpacing: '0.01em',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0
+            color: "#5b1b8d",
+            textDecoration: "underline",
+            textUnderlineOffset: "4px",
+            fontSize: "1rem",
+            letterSpacing: "0.01em",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 0,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.opacity = '0.7';
+            e.currentTarget.style.opacity = "0.7";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.opacity = "1";
           }}
         >
           Read more
@@ -603,7 +646,11 @@ Letters are noisy. They refuse silence, always.
   );
 }
 
-function About2026Section({ onNavigate }: { onNavigate: (page: string) => void }) {
+function About2026Section({
+  onNavigate,
+}: {
+  onNavigate: (page: string) => void;
+}) {
   return (
     <section
       className="py-16 md:py-24 px-6"
@@ -699,7 +746,11 @@ function About2026Section({ onNavigate }: { onNavigate: (page: string) => void }
   );
 }
 
-function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void }) {
+function SponsorsSection({
+  onNavigate,
+}: {
+  onNavigate: (page: string) => void;
+}) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -711,114 +762,127 @@ function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void })
       scrollContainer.scrollLeft += e.deltaY;
     };
 
-    scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
-      scrollContainer.removeEventListener('wheel', handleWheel);
+      scrollContainer.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
   const sponsors = [
     {
       id: 1,
-      name: 'Sponsor Name',
-      position: 'Title Sponsor',
-      description: 'Brief description of sponsor and their contribution to the festival.',
-      image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=400&fit=crop'
+      name: "Sponsor Name",
+      position: "Title Sponsor",
+      description:
+        "Brief description of sponsor and their contribution to the festival.",
+      image:
+        "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=400&fit=crop",
     },
     {
       id: 2,
-      name: 'Partner Organization',
-      position: 'Presenting Partner',
-      description: 'Brief description of partner and their contribution to the festival.',
-      image: 'https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=400&h=400&fit=crop'
+      name: "Partner Organization",
+      position: "Presenting Partner",
+      description:
+        "Brief description of partner and their contribution to the festival.",
+      image:
+        "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=400&h=400&fit=crop",
     },
     {
       id: 3,
-      name: 'Cultural Foundation',
-      position: 'Platinum Sponsor',
-      description: 'Brief description of foundation and their contribution to the festival.',
-      image: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=400&h=400&fit=crop'
+      name: "Cultural Foundation",
+      position: "Platinum Sponsor",
+      description:
+        "Brief description of foundation and their contribution to the festival.",
+      image:
+        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=400&h=400&fit=crop",
     },
     {
       id: 4,
-      name: 'Literary Trust',
-      position: 'Gold Sponsor',
-      description: 'Brief description of trust and their contribution to the festival.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop'
+      name: "Literary Trust",
+      position: "Gold Sponsor",
+      description:
+        "Brief description of trust and their contribution to the festival.",
+      image:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop",
     },
     {
       id: 5,
-      name: 'Publishing House',
-      position: 'Silver Sponsor',
-      description: 'Brief description of publishing house and their contribution to the festival.',
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=400&fit=crop'
-    }
+      name: "Publishing House",
+      position: "Silver Sponsor",
+      description:
+        "Brief description of publishing house and their contribution to the festival.",
+      image:
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=400&fit=crop",
+    },
   ];
 
   return (
-    <section id="sponsors" className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
+    <section
+      id="sponsors"
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 md:mb-16">
-          <h2 
+          <h2
             className="mb-4"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             Sponsors & Partners
           </h2>
-          <p 
+          <p
             style={{
-              fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-              lineHeight: '1.8',
-              color: '#2a2a2a',
-              letterSpacing: '0.005em',
-              maxWidth: '42rem'
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+              maxWidth: "42rem",
             }}
           >
-            We extend our gratitude to our sponsors and partners whose support makes 
-            Aksharam Literature Festival possible.
+            We extend our gratitude to our sponsors and partners whose support
+            makes Aksharam Literature Festival possible.
           </p>
         </div>
 
         {/* Desktop: Two-column layout */}
         <div className="hidden md:grid md:grid-cols-2 md:gap-12 lg:gap-16">
           <div className="flex flex-col justify-start">
-            <p 
+            <p
               style={{
-                fontSize: '1rem',
-                lineHeight: '1.8',
-                color: '#2a2a2a',
-                letterSpacing: '0.005em'
+                fontSize: "1rem",
+                lineHeight: "1.8",
+                color: "#2a2a2a",
+                letterSpacing: "0.005em",
               }}
             >
-              Our sponsors share our commitment to fostering literary culture and 
-              supporting meaningful dialogue. Their partnership enables us to bring 
-              together diverse voices and create a platform for cultural exchange.
+              Our sponsors share our commitment to fostering literary culture
+              and supporting meaningful dialogue. Their partnership enables us
+              to bring together diverse voices and create a platform for
+              cultural exchange.
             </p>
           </div>
 
-          <div 
-            className="relative"
-            style={{ height: '600px' }}
-          >
-            <div 
+          <div className="relative" style={{ height: "600px" }}>
+            <div
               className="absolute top-0 left-0 bottom-0 w-16 z-10 pointer-events-none"
               style={{
-                background: 'linear-gradient(to right, #f0efeb 0%, transparent 100%)'
+                background:
+                  "linear-gradient(to right, #f0efeb 0%, transparent 100%)",
               }}
             />
-            
+
             <div
               ref={scrollRef}
               className="h-full overflow-x-auto overflow-y-hidden"
               style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               <style>{`
@@ -826,20 +890,21 @@ function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void })
                   display: none;
                 }
               `}</style>
-              
+
               <div className="flex gap-8 h-full pr-16">
                 {sponsors.map((sponsor) => (
-                  <div key={sponsor.id} style={{ minWidth: '350px' }}>
+                  <div key={sponsor.id} style={{ minWidth: "350px" }}>
                     <SponsorCard sponsor={sponsor} />
                   </div>
                 ))}
               </div>
             </div>
 
-            <div 
+            <div
               className="absolute top-0 right-0 bottom-0 w-16 pointer-events-none"
               style={{
-                background: 'linear-gradient(to left, #f0efeb 0%, transparent 100%)'
+                background:
+                  "linear-gradient(to left, #f0efeb 0%, transparent 100%)",
               }}
             />
           </div>
@@ -855,26 +920,26 @@ function SponsorsSection({ onNavigate }: { onNavigate: (page: string) => void })
         {/* View More Sponsors button */}
         <div className="text-center mt-0">
           <button
-            onClick={() => onNavigate('all-sponsors')}
+            onClick={() => onNavigate("all-sponsors")}
             className="px-6 py-3 transition-all duration-300"
             style={{
-             backgroundColor: '#f0efeb',            // cream fill
-    color: '#0C3B2E',                       // dark green text
-    textDecoration: 'none',
-    fontSize: '1rem',
-    fontWeight: 600,
-    letterSpacing: '0.01em',
-    borderRadius: '99px',                 // full pill shape
-    border: '2px solid #000000',            // thick dark border
-    whiteSpace: 'nowrap'
+              backgroundColor: "#ffffffff", // cream fill
+              color: "#0C3B2E", // dark green text
+              textDecoration: "none",
+              fontSize: "1rem",
+              fontWeight: 600,
+              letterSpacing: "0.01em",
+              borderRadius: "99px", // full pill shape
+              border: "2px solid #000000", // thick dark border
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FFE8B3';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#faf2e5ff";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f0efeb';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#ffffffff";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             View More Sponsors
@@ -898,14 +963,14 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
     <div
       className="group transition-all duration-500 ease-out"
       style={{
-        borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-        paddingBottom: '1rem'
+        borderBottom: "1px solid rgba(11, 11, 11, 0.06)",
+        paddingBottom: "1rem",
       }}
     >
-      <div 
+      <div
         className="mb-4 overflow-hidden"
         style={{
-          borderRadius: '2px'
+          borderRadius: "2px",
         }}
       >
         <img
@@ -913,59 +978,59 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
           alt={sponsor.name}
           className="w-full h-48 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           style={{
-            filter: 'grayscale(100%) contrast(1.1)',
-            opacity: 0.85
+            filter: "grayscale(100%) contrast(1.1)",
+            opacity: 0.85,
           }}
         />
       </div>
 
       <div>
-        <h3 
+        <h3
           className="mb-2"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: '1.25rem',
-            color: '#0b0b0b',
-            letterSpacing: '-0.005em'
+            fontFamily: "Georgia, serif",
+            fontSize: "1.25rem",
+            color: "#0b0b0b",
+            letterSpacing: "-0.005em",
           }}
         >
           {sponsor.name}
         </h3>
-        
-        <p 
+
+        <p
           className="mb-3"
           style={{
-            fontSize: '0.9375rem',
-            color: '#2a2a2a',
-            letterSpacing: '0.01em',
-            opacity: 0.8
+            fontSize: "0.9375rem",
+            color: "#2a2a2a",
+            letterSpacing: "0.01em",
+            opacity: 0.8,
           }}
         >
           {sponsor.position}
         </p>
 
-        <p 
+        <p
           className="mb-4"
           style={{
-            fontSize: '0.9375rem',
-            lineHeight: '1.7',
-            color: '#2a2a2a',
-            letterSpacing: '0.005em'
+            fontSize: "0.9375rem",
+            lineHeight: "1.7",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
           }}
         >
           {sponsor.description}
         </p>
 
-        <a 
+        <a
           href="#"
           className="inline-block group-hover:underline"
           style={{
-            color: '#5b1b8d',
-            textDecoration: 'none',
-            textUnderlineOffset: '4px',
-            fontSize: '0.9375rem',
-            letterSpacing: '0.01em',
-            transition: 'text-decoration 0.3s ease'
+            color: "#5b1b8d",
+            textDecoration: "none",
+            textUnderlineOffset: "4px",
+            fontSize: "0.9375rem",
+            letterSpacing: "0.01em",
+            transition: "text-decoration 0.3s ease",
           }}
         >
           Read more
@@ -975,7 +1040,11 @@ function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
-function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void }) {
+function SpeakersSection({
+  onNavigate,
+}: {
+  onNavigate: (page: string) => void;
+}) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -987,114 +1056,127 @@ function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void })
       scrollContainer.scrollLeft += e.deltaY;
     };
 
-    scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
+    scrollContainer.addEventListener("wheel", handleWheel, { passive: false });
 
     return () => {
-      scrollContainer.removeEventListener('wheel', handleWheel);
+      scrollContainer.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
   const speakers = [
     {
       id: 1,
-      name: 'Speaker Name',
-      position: 'Novelist & Essayist',
-      description: 'Brief description of speaker and their contribution to literature.',
-      image: 'https://images.unsplash.com/photo-1680356475155-3ca8fa2192aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRob3IlMjB3cml0ZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3MTQ1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Novelist & Essayist",
+      description:
+        "Brief description of speaker and their contribution to literature.",
+      image:
+        "https://images.unsplash.com/photo-1680356475155-3ca8fa2192aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRob3IlMjB3cml0ZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3MTQ1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 2,
-      name: 'Speaker Name',
-      position: 'Poet & Translator',
-      description: 'Brief description of speaker and their contribution to literature.',
-      image: 'https://images.unsplash.com/photo-1713610125715-ec6c1694b345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2V0JTIwcmVhZGluZyUyMGJvb2t8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Poet & Translator",
+      description:
+        "Brief description of speaker and their contribution to literature.",
+      image:
+        "https://images.unsplash.com/photo-1713610125715-ec6c1694b345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2V0JTIwcmVhZGluZyUyMGJvb2t8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 3,
-      name: 'Speaker Name',
-      position: 'Literary Scholar',
-      description: 'Brief description of speaker and their contribution to literature.',
-      image: 'https://images.unsplash.com/photo-1574281570877-bd815ebb50a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzb3IlMjB0ZWFjaGVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzY3NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Literary Scholar",
+      description:
+        "Brief description of speaker and their contribution to literature.",
+      image:
+        "https://images.unsplash.com/photo-1574281570877-bd815ebb50a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzb3IlMjB0ZWFjaGVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzY3NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 4,
-      name: 'Speaker Name',
-      position: 'Cultural Critic',
-      description: 'Brief description of speaker and their contribution to literature.',
-      image: 'https://images.unsplash.com/photo-1558962009-34fff2bd2e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlbGxlY3R1YWwlMjB0aGlua2VyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Cultural Critic",
+      description:
+        "Brief description of speaker and their contribution to literature.",
+      image:
+        "https://images.unsplash.com/photo-1558962009-34fff2bd2e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlbGxlY3R1YWwlMjB0aGlua2VyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 5,
-      name: 'Speaker Name',
-      position: 'Historian & Author',
-      description: 'Brief description of speaker and their contribution to literature.',
-      image: 'https://images.unsplash.com/photo-1743327557042-a03327d0e9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFyJTIwYWNhZGVtaWMlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3OTEyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    }
+      name: "Speaker Name",
+      position: "Historian & Author",
+      description:
+        "Brief description of speaker and their contribution to literature.",
+      image:
+        "https://images.unsplash.com/photo-1743327557042-a03327d0e9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFyJTIwYWNhZGVtaWMlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3OTEyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    },
   ];
 
   return (
-    <section id="speakers" className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
+    <section
+      id="speakers"
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 md:mb-16">
-          <h2 
+          <h2
             className="mb-4"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             Speakers
           </h2>
-          <p 
+          <p
             style={{
-              fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-              lineHeight: '1.8',
-              color: '#2a2a2a',
-              letterSpacing: '0.005em',
-              maxWidth: '42rem'
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.8",
+              color: "#2a2a2a",
+              letterSpacing: "0.005em",
+              maxWidth: "42rem",
             }}
           >
-            Join us for insightful talks and discussions with leading literary figures who bring 
-            fresh perspectives on the world of literature.
+            Join us for insightful talks and discussions with leading literary
+            figures who bring fresh perspectives on the world of literature.
           </p>
         </div>
 
         {/* Desktop: Two-column layout */}
         <div className="hidden md:grid md:grid-cols-2 md:gap-12 lg:gap-16">
           <div className="flex flex-col justify-start">
-            <p 
+            <p
               style={{
-                fontSize: '1rem',
-                lineHeight: '1.8',
-                color: '#2a2a2a',
-                letterSpacing: '0.005em'
+                fontSize: "1rem",
+                lineHeight: "1.8",
+                color: "#2a2a2a",
+                letterSpacing: "0.005em",
               }}
             >
-              Our speakers bring a wealth of knowledge and experience across diverse literary 
-              traditions and forms. From acclaimed authors to emerging voices, each speaker 
-              offers unique insights into the evolving landscape of contemporary literature.
+              Our speakers bring a wealth of knowledge and experience across
+              diverse literary traditions and forms. From acclaimed authors to
+              emerging voices, each speaker offers unique insights into the
+              evolving landscape of contemporary literature.
             </p>
           </div>
 
-          <div 
-            className="relative"
-            style={{ height: '600px' }}
-          >
-            <div 
+          <div className="relative" style={{ height: "600px" }}>
+            <div
               className="absolute top-0 left-0 bottom-0 w-16 z-10 pointer-events-none"
               style={{
-                background: 'linear-gradient(to right, #f0efeb 0%, transparent 100%)'
+                background:
+                  "linear-gradient(to right, #f0efeb 0%, transparent 100%)",
               }}
             />
-            
+
             <div
               ref={scrollRef}
               className="h-full overflow-x-auto overflow-y-hidden"
               style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none'
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               <style>{`
@@ -1102,20 +1184,21 @@ function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void })
                   display: none;
                 }
               `}</style>
-              
+
               <div className="flex gap-8 h-full pr-16">
                 {speakers.map((speaker) => (
-                  <div key={speaker.id} style={{ minWidth: '350px' }}>
+                  <div key={speaker.id} style={{ minWidth: "350px" }}>
                     <SpeakerCard speaker={speaker} />
                   </div>
                 ))}
               </div>
             </div>
 
-            <div 
+            <div
               className="absolute top-0 right-0 bottom-0 w-16 pointer-events-none"
               style={{
-                background: 'linear-gradient(to left, #f0efeb 0%, transparent 100%)'
+                background:
+                  "linear-gradient(to left, #f0efeb 0%, transparent 100%)",
               }}
             />
           </div>
@@ -1131,26 +1214,26 @@ function SpeakersSection({ onNavigate }: { onNavigate: (page: string) => void })
         {/* View More Speakers button */}
         <div className="text-center mt-0">
           <button
-            onClick={() => onNavigate('all-speakers')}
+            onClick={() => onNavigate("all-speakers")}
             className="px-6 py-3 transition-all duration-300"
             style={{
-               backgroundColor: '#f0efeb',            // cream fill
-    color: '#0C3B2E',                       // dark green text
-    textDecoration: 'none',
-    fontSize: '1rem',
-    fontWeight: 600,
-    letterSpacing: '0.01em',
-    borderRadius: '99px',                 // full pill shape
-    border: '2px solid #000000',            // thick dark border
-    whiteSpace: 'nowrap'
+              backgroundColor: "#ffffffff", // cream fill
+              color: "#0C3B2E", // dark green text
+              textDecoration: "none",
+              fontSize: "1rem",
+              fontWeight: 600,
+              letterSpacing: "0.01em",
+              borderRadius: "99px", // full pill shape
+              border: "2px solid #000000", // thick dark border
+              whiteSpace: "nowrap",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#FFE8B3';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#faf2e5ff";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f0efeb';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#ffffffff";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             View More Speakers
@@ -1174,14 +1257,14 @@ function SpeakerCard({ speaker }: { speaker: Speaker }) {
     <div
       className="group transition-all duration-500 ease-out"
       style={{
-        borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-        paddingBottom: '1rem'
+        borderBottom: "1px solid rgba(11, 11, 11, 0.06)",
+        paddingBottom: "1rem",
       }}
     >
-      <div 
+      <div
         className="mb-4 overflow-hidden"
         style={{
-          borderRadius: '2px'
+          borderRadius: "2px",
         }}
       >
         <img
@@ -1189,59 +1272,59 @@ function SpeakerCard({ speaker }: { speaker: Speaker }) {
           alt={speaker.name}
           className="w-full h-48 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           style={{
-            filter: 'grayscale(100%) contrast(1.1)',
-            opacity: 0.85
+            filter: "grayscale(100%) contrast(1.1)",
+            opacity: 0.85,
           }}
         />
       </div>
 
       <div>
-        <h3 
+        <h3
           className="mb-2"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: '1.25rem',
-            color: '#0b0b0b',
-            letterSpacing: '-0.005em'
+            fontFamily: "Georgia, serif",
+            fontSize: "1.25rem",
+            color: "#0b0b0b",
+            letterSpacing: "-0.005em",
           }}
         >
           {speaker.name}
         </h3>
-        
-        <p 
+
+        <p
           className="mb-3"
           style={{
-            fontSize: '0.9375rem',
-            color: '#2a2a2a',
-            letterSpacing: '0.01em',
-            opacity: 0.8
+            fontSize: "0.9375rem",
+            color: "#2a2a2a",
+            letterSpacing: "0.01em",
+            opacity: 0.8,
           }}
         >
           {speaker.position}
         </p>
 
-        <p 
+        <p
           className="mb-4"
           style={{
-            fontSize: '0.9375rem',
-            lineHeight: '1.7',
-            color: '#2a2a2a',
-            letterSpacing: '0.005em'
+            fontSize: "0.9375rem",
+            lineHeight: "1.7",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
           }}
         >
           {speaker.description}
         </p>
 
-        <a 
+        <a
           href="#"
           className="inline-block group-hover:underline"
           style={{
-            color: '#5b1b8d',
-            textDecoration: 'none',
-            textUnderlineOffset: '4px',
-            fontSize: '0.9375rem',
-            letterSpacing: '0.01em',
-            transition: 'text-decoration 0.3s ease'
+            color: "#5b1b8d",
+            textDecoration: "none",
+            textUnderlineOffset: "4px",
+            fontSize: "0.9375rem",
+            letterSpacing: "0.01em",
+            transition: "text-decoration 0.3s ease",
           }}
         >
           Read more
@@ -1253,99 +1336,117 @@ function SpeakerCard({ speaker }: { speaker: Speaker }) {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
+    <section
+      id="contact"
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
         {/* Left Side: Contact Info */}
         <div>
-          <h2 
+          <h2
             className="mb-6 md:mb-8"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             Enquiries
           </h2>
           <div className="space-y-6">
             <div className="flex flex-col gap-1 pt-4">
-              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}>Venue</span>
-              <a 
+              <span
+                className="text-sm uppercase tracking-wider opacity-60"
+                style={{ color: "#2a2a2a" }}
+              >
+                Venue
+              </span>
+              <a
                 href="https://www.google.com/maps/search/?api=1&query=CMS+College,+Kottayam,+Kerala+686001"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"
                 style={{
-                  fontSize: '1rem',
-                  lineHeight: '1.6',
-                  color: '#2a2a2a',
-                  textDecoration: 'none',
-                  display: 'block'
+                  fontSize: "1rem",
+                  lineHeight: "1.6",
+                  color: "#2a2a2a",
+                  textDecoration: "none",
+                  display: "block",
                 }}
               >
-                CMS College,<br/>
+                CMS College,
+                <br />
                 Kottayam, Kerala 686001
               </a>
             </div>
+            <br />
+            <br />
             <div className="flex flex-col gap-1">
-              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}></span>
-              <a 
+              <span
+                className="text-sm uppercase tracking-wider opacity-60"
+                style={{ color: "#2a2a2a" }}
+              ></span>
+              <a
                 href="mailto:aksharamlitfest@gmail.com"
                 style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-                  color: '#2a2a2a',
-                  textDecoration: 'none',
-                  borderBottom: '1px solid #2a2a2a',
-                  paddingBottom: '2px',
-                  display: 'inline-block',
-                  alignSelf: 'flex-start',
-                  letterSpacing: '0.005em'
+                  fontSize: "clamp(1rem, 2vw, 1.125rem)",
+                  color: "#2a2a2a",
+                  textDecoration: "none",
+                  borderBottom: "1px solid #2a2a2a",
+                  paddingBottom: "2px",
+                  display: "inline-block",
+                  alignSelf: "flex-start",
+                  letterSpacing: "0.005em",
                 }}
               >
                 aksharamlitfest@gmail.com
               </a>
             </div>
-            
+
             <div className="flex flex-col gap-1">
-              <span className="text-sm uppercase tracking-wider opacity-60" style={{ color: '#2a2a2a' }}></span>
-              <a 
+              <span
+                className="text-sm uppercase tracking-wider opacity-60"
+                style={{ color: "#2a2a2a" }}
+              ></span>
+              <a
                 href="tel:+918921809750"
                 style={{
-                  fontSize: 'clamp(1rem, 2vw, 1.125rem)',
-                  color: '#2a2a2a',
-                  textDecoration: 'none',
-                  borderBottom: '1px solid #2a2a2a',
-                  paddingBottom: '2px',
-                  display: 'inline-block',
-                  alignSelf: 'flex-start',
-                  letterSpacing: '0.005em'
+                  fontSize: "clamp(1rem, 2vw, 1.125rem)",
+                  color: "#2a2a2a",
+                  textDecoration: "none",
+                  borderBottom: "1px solid #2a2a2a",
+                  paddingBottom: "2px",
+                  display: "inline-block",
+                  alignSelf: "flex-start",
+                  letterSpacing: "0.005em",
                 }}
               >
                 +91 89218 09750
               </a>
             </div>
-
-            
           </div>
         </div>
-
         {/* Right Side: Map */}
-        <div 
+        <div
           className="w-full h-[400px] md:h-[450px] overflow-hidden"
-          style={{ 
-            borderRadius: '2px',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
-            border: '1px solid rgba(0,0,0,0.05)'
+          style={{
+            borderRadius: "2px",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+            border: "1px solid rgba(0,0,0,0.05)",
           }}
         >
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.981735521457!2d76.5206664!3d9.596840699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062b0c12abf377%3A0x59076985a0f3b64!2sCMS%20College%20Kottayam!5e0!3m2!1sen!2sin!4v1767874517335!5m2!1sen!2sin" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0, filter: 'grayscale(1) contrast(0.9) opacity(0.9)' }} 
-            allowFullScreen={true} 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.981735521457!2d76.5206664!3d9.596840699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062b0c12abf377%3A0x59076985a0f3b64!2sCMS%20College%20Kottayam!5e0!3m2!1sen!2sin!4v1767874517335!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{
+              border: 0,
+              filter: "grayscale(1) contrast(0.9) opacity(0.9)",
+            }}
+            allowFullScreen={true}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Aksharam Location Map"
           ></iframe>
@@ -1357,75 +1458,78 @@ function ContactSection() {
 
 function SocialSection() {
   return (
-    <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#f0efeb' }}>
-      <div className="max-w-3xl mx-auto">
-        <h2 
+    <section
+      className="py-16 md:py-24 px-6"
+      style={{ backgroundColor: "#f0efeb" }}
+    >
+      <div className="max-w-6xl mx-auto">
+        <h2
           className="mb-6 md:mb-8"
           style={{
-            fontFamily: 'Georgia, serif',
-            fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-            color: '#0b0b0b',
-            letterSpacing: '-0.01em'
+            fontFamily: "Georgia, serif",
+            fontSize: "clamp(1.5rem, 3vw, 2rem)",
+            color: "#0b0b0b",
+            letterSpacing: "-0.01em",
           }}
         >
           Follow Us
         </h2>
         <div className="flex flex-wrap gap-6 md:gap-8 items-center">
-          <a 
+          <a
             href="https://www.instagram.com/aksharamlitfest/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.01em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.01em",
             }}
           >
             <Instagram size={20} strokeWidth={1.5} />
             <span>Instagram</span>
           </a>
-          <a 
+          <a
             href="https://www.facebook.com/profile.php?id=61585870871075"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.01em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.01em",
             }}
           >
             <Facebook size={20} strokeWidth={1.5} />
             <span>Facebook</span>
           </a>
-          <a 
+          <a
             href="https://www.youtube.com/channel/UChhHioSp5duUN5yG9S1obpw"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.01em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.01em",
             }}
           >
             <Youtube size={20} strokeWidth={1.5} />
             <span>YouTube</span>
           </a>
-          <a 
+          <a
             href="https://whatsapp.com/channel/0029VbBZliAI7BeHIDr6sH0K"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 transition-opacity hover:opacity-70"
             style={{
-              color: '#2a2a2a',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.01em'
+              color: "#2a2a2a",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.01em",
             }}
           >
             <Whatsapp size={20} />
@@ -1439,13 +1543,19 @@ function SocialSection() {
 
 function Footer() {
   return (
-    <footer className="py-8 md:py-12 px-6 border-t" style={{ backgroundColor: '#f0efeb', borderColor: 'rgba(11, 11, 11, 0.1)' }}>
+    <footer
+      className="py-8 md:py-12 px-6 border-t"
+      style={{
+        backgroundColor: "#ffffffff",
+        borderColor: "rgba(11, 11, 11, 0.1)",
+      }}
+    >
       <div className="max-w-3xl mx-auto text-center">
-        <p 
+        <p
           style={{
-            fontSize: '0.875rem',
-            color: '#2a2a2a',
-            letterSpacing: '0.02em'
+            fontSize: "0.875rem",
+            color: "#2a2a2a",
+            letterSpacing: "0.02em",
           }}
         >
           Aksharam Literature Festival 2026
@@ -1509,26 +1619,32 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
               letterSpacing: "0.005em",
             }}
           >
-            <p className="mb-6">
+            <p className="mb-6" style={{ textAlign: "justify" }}>
               AKSHARAM is born out of a historical and cultural urgency. In an
               era shaped by “post-truth,” where misinformation erodes public
               discourse and lived experiences are erased from record, the
               festival positions literature as a collective chant for truth,
-              language, and critical thought. Rooted in Kottayam — the historic
-              Land of Letters — AKSHARAM draws inspiration from the landmark
-              1957 literary conference that played a defining role in shaping
-              modern Kerala’s cultural and intellectual consciousness. After
-              seven decades, the city once again becomes a stage for ideas,
-              debates, and creative exchange. AKSHARAM brings together writers,
-              thinkers, artists, and cultural practitioners to explore
-              literature not merely as aesthetic expression, but as a political
-              and ethical act. The festival foregrounds marginalized voices,
-              forgotten languages, and suppressed narratives, asserting
-              literature as a space for rational dialogue, remembrance, and
-              dissent.
+              language, and critical thought.
             </p>
-
-            <p className="mb-6" style={{ fontWeight: "700" }}>
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              Rooted in Kottayam — the historic Land of Letters — AKSHARAM draws
+              inspiration from the landmark 1957 literary conference that played
+              a defining role in shaping modern Kerala’s cultural and
+              intellectual consciousness. After seven decades, the city once
+              again becomes a stage for ideas, debates, and creative exchange.
+            </p>
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              AKSHARAM brings together writers, thinkers, artists, and cultural
+              practitioners to explore literature not merely as aesthetic
+              expression, but as a political and ethical act. The festival
+              foregrounds marginalized voices, forgotten languages, and
+              suppressed narratives, asserting literature as a space for
+              rational dialogue, remembrance, and dissent.
+            </p>
+            <p
+              className="mb-6"
+              style={{ fontWeight: "700", textAlign: "justify" }}
+            >
               Through conversations, readings, performances, and
               interdisciplinary encounters, AKSHARAM affirms a simple yet
               powerful belief: letters do not accept silence. They speak,
@@ -1545,19 +1661,20 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
             >
               About MGOCSM (Malankara Orthodox Church Student Movement)
             </h1>
-            <p className="mb-6">
-              The Malankara Orthodox Church Student Movement (MGOCSM) is the
-              student wing of the Malankara Orthodox Syrian Church, committed to
-              nurturing socially responsible, intellectually curious, and
-              ethically grounded youth. Through educational, cultural, and
-              community-oriented initiatives, MGOCSM encourages students to
-              engage with questions of faith, society, justice, and service.
-              With a strong emphasis on dialogue, leadership, and social
-              awareness, MGOCSM actively participates in cultural and academic
-              platforms that foster critical thinking and inclusive
-              perspectives. Its association with AKSHARAM reflects a shared
-              commitment to knowledge, values, and the transformative power of
-              ideas and literature.
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              The Malankara Orthodox Church Student Movement is an organisation
+              established for students under the auspices of the Malankara
+              Orthodox Syrian Church. An initiative to ensure spiritual progress
+              during the scholastic phase. From its inception in the early 20th
+              century, MGOCSM sought to shape the youth into responsible,
+              spiritually minded, and intellectually curious individuals.
+            </p>
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              MGOCSM believes in the power of words and literature in shaping
+              the new world and commits to spreading knowledge across the
+              masses. The association with AKSHARAM strengthens the core values
+              of MGOCSM, which is to facilitate young students’ critical
+              thinking, leadership, and social awareness.
             </p>
             <h1
               className="mb-8"
@@ -1570,17 +1687,50 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
             >
               About CMS College, Kottayam
             </h1>
-            <p className="mb-6">
-              CMS College, Kottayam, established in 1817, is one of the oldest
-              colleges in India and a cornerstone of Kerala’s intellectual and
-              cultural history. The institution has played a pioneering role in
-              the development of modern education, printing, language, and
-              social reform in the region, earning Kottayam its reputation as
-              the “Land of Letters.” With a legacy rooted in academic excellence
-              and social engagement, CMS College continues to nurture
-              generations of thinkers, writers, educators, and leaders. Its
-              association with AKSHARAM underscores its enduring commitment to
-              literature, critical inquiry, and the cultural life of society.
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              CMS College is one of the pioneer colleges in India with a deeply
+              rooted legacy dating back to 1817 when it was established. CMS
+              College has played a major role in the literary, cultural, and
+              social movements that took place in Kottayam, which has enabled
+              the city to earn the name “The land of 3 L’s”. With a well-known
+              tradition of intellectual discourse, CMS College now associates
+              with ‘AKSHARAM’ to foster literature as an expression and as a
+              form of resilience and resistance, while imparting a sense of
+              embrace for all forms of arts and artists.
+            </p>
+            <div className="mx-auto mb-6" style={{ width: "180px" }}>
+              <img
+                src={abiImage}
+                alt="Abi John Mathew"
+                className="w-full object-cover"
+                style={{
+                  borderRadius: "2px",
+                  filter: "grayscale(100%) contrast(1.1)",
+                  opacity: 0.9,
+                  aspectRatio: "1/1",
+                  boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
+                }}
+              />
+              <p
+                style={{
+                  fontSize: "0.75rem",
+                  color: "#2a2a2a",
+                  marginTop: "0.5rem",
+                  textAlign: "center",
+                  fontStyle: "italic",
+                }}
+              >
+                <strong>Abi John Mathew, Founder</strong>
+              </p>
+            </div>
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              <strong>ABI</strong>- Meet <strong>Abi John Mathew</strong>, a
+              passionate 3rd-year BA Malayalam student at the CMS College,
+              Kottayam, the mastermind behind AKSHARAM. He's also the Literary
+              and Cultural Forum Secretary of MGOCSM. He thrives on Malayalam
+              literature and culture. He is a creative visionary with a flair
+              for innovation. His pursuits are deeply rooted in the power of
+              words and culture.
             </p>
           </div>
         </div>
@@ -1590,8 +1740,13 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
   );
 }
 
-
-function About2026Page({ onBack, onNavigate }: { onBack: () => void; onNavigate: (page: string) => void }) {
+function About2026Page({
+  onBack,
+  onNavigate,
+}: {
+  onBack: () => void;
+  onNavigate: (page: string) => void;
+}) {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
@@ -1643,7 +1798,7 @@ function About2026Page({ onBack, onNavigate }: { onBack: () => void; onNavigate:
               letterSpacing: "0.005em",
             }}
           >
-            <p className="mb-6">
+            <p className="mb-6" style={{ textAlign: "justify" }}>
               A century ago, Poykayil Appachan wrote of a painful absence — the
               absence of letters that record the history of his own people.
               Throughout history, eras have repeatedly silenced the voices of
@@ -1672,7 +1827,7 @@ function About2026Page({ onBack, onNavigate }: { onBack: () => void; onNavigate:
             <p className="mb-2" style={{ fontWeight: "700" }}>
               Dinu Veyil
             </p>
-            <p className="mb-6">
+            <p className="mb-6" style={{ textAlign: "justify" }}>
               AKSHARAM emerges from a simple but urgent question: whose letters
               have we failed to read? History often remembers power, but forgets
               pain, struggle, and lived experience. Festival of Unseen Letters
@@ -1908,43 +2063,53 @@ function AllSpeakersPage({ onBack }: { onBack: () => void }) {
   const speakers = [
     {
       id: 1,
-      name: 'Speaker Name',
-      position: 'Novelist & Essayist',
-      description: 'Detailed biography and contribution to literature. A renowned voice in contemporary fiction, exploring themes of identity, memory, and cultural displacement through innovative narrative forms.',
-      image: 'https://images.unsplash.com/photo-1680356475155-3ca8fa2192aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRob3IlMjB3cml0ZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3MTQ1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Novelist & Essayist",
+      description:
+        "Detailed biography and contribution to literature. A renowned voice in contemporary fiction, exploring themes of identity, memory, and cultural displacement through innovative narrative forms.",
+      image:
+        "https://images.unsplash.com/photo-1680356475155-3ca8fa2192aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRob3IlMjB3cml0ZXIlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3MTQ1Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 2,
-      name: 'Speaker Name',
-      position: 'Poet & Translator',
-      description: 'Detailed biography and contribution to literature. An acclaimed translator bridging linguistic traditions, known for bringing marginalized voices to wider audiences through sensitive, nuanced renderings.',
-      image: 'https://images.unsplash.com/photo-1713610125715-ec6c1694b345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2V0JTIwcmVhZGluZyUyMGJvb2t8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Poet & Translator",
+      description:
+        "Detailed biography and contribution to literature. An acclaimed translator bridging linguistic traditions, known for bringing marginalized voices to wider audiences through sensitive, nuanced renderings.",
+      image:
+        "https://images.unsplash.com/photo-1713610125715-ec6c1694b345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2V0JTIwcmVhZGluZyUyMGJvb2t8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 3,
-      name: 'Speaker Name',
-      position: 'Literary Scholar',
-      description: 'Detailed biography and contribution to literature. A leading scholar of comparative literature, examining cross-cultural literary exchanges and the evolution of narrative forms across traditions.',
-      image: 'https://images.unsplash.com/photo-1574281570877-bd815ebb50a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzb3IlMjB0ZWFjaGVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzY3NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Literary Scholar",
+      description:
+        "Detailed biography and contribution to literature. A leading scholar of comparative literature, examining cross-cultural literary exchanges and the evolution of narrative forms across traditions.",
+      image:
+        "https://images.unsplash.com/photo-1574281570877-bd815ebb50a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzb3IlMjB0ZWFjaGVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzY3NTcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 4,
-      name: 'Speaker Name',
-      position: 'Cultural Critic',
-      description: 'Detailed biography and contribution to literature. An influential critic whose work interrogates the relationship between literature, politics, and social change in the contemporary moment.',
-      image: 'https://images.unsplash.com/photo-1558962009-34fff2bd2e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlbGxlY3R1YWwlMjB0aGlua2VyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080'
+      name: "Speaker Name",
+      position: "Cultural Critic",
+      description:
+        "Detailed biography and contribution to literature. An influential critic whose work interrogates the relationship between literature, politics, and social change in the contemporary moment.",
+      image:
+        "https://images.unsplash.com/photo-1558962009-34fff2bd2e9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbnRlbGxlY3R1YWwlMjB0aGlua2VyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzY3NzkxMjQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
     },
     {
       id: 5,
-      name: 'Speaker Name',
-      position: 'Historian & Author',
-      description: 'Detailed biography and contribution to literature. A historian whose narrative approach to the past has redefined how we understand cultural memory and collective identity.',
-      image: 'https://images.unsplash.com/photo-1743327557042-a03327d0e9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFyJTIwYWNhZGVtaWMlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3OTEyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080'
-    }
+      name: "Speaker Name",
+      position: "Historian & Author",
+      description:
+        "Detailed biography and contribution to literature. A historian whose narrative approach to the past has redefined how we understand cultural memory and collective identity.",
+      image:
+        "https://images.unsplash.com/photo-1743327557042-a03327d0e9ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFyJTIwYWNhZGVtaWMlMjBwb3J0cmFpdHxlbnwxfHx8fDE3Njc3OTEyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    },
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
       <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
         <div className="max-w-6xl mx-auto">
@@ -1952,35 +2117,35 @@ function AllSpeakersPage({ onBack }: { onBack: () => void }) {
             onClick={onBack}
             className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
             style={{
-              backgroundColor: '#2a2a2a',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1f1f1f';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2a2a2a';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             ← Back to Home
           </button>
 
-          <h1 
+          <h1
             className="mb-12"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             All Speakers
@@ -1992,55 +2157,55 @@ function AllSpeakersPage({ onBack }: { onBack: () => void }) {
                 key={speaker.id}
                 className="group"
                 style={{
-                  borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-                  paddingBottom: '2rem'
+                  borderBottom: "1px solid rgba(11, 11, 11, 0.06)",
+                  paddingBottom: "2rem",
                 }}
               >
-                <div 
+                <div
                   className="mb-4 overflow-hidden"
-                  style={{ borderRadius: '2px' }}
+                  style={{ borderRadius: "2px" }}
                 >
                   <img
                     src={speaker.image}
                     alt={speaker.name}
                     className="w-full h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     style={{
-                      filter: 'grayscale(100%) contrast(1.1)',
-                      opacity: 0.85
+                      filter: "grayscale(100%) contrast(1.1)",
+                      opacity: 0.85,
                     }}
                   />
                 </div>
 
-                <h3 
+                <h3
                   className="mb-2"
                   style={{
-                    fontFamily: 'Georgia, serif',
-                    fontSize: '1.25rem',
-                    color: '#0b0b0b',
-                    letterSpacing: '-0.005em'
+                    fontFamily: "Georgia, serif",
+                    fontSize: "1.25rem",
+                    color: "#0b0b0b",
+                    letterSpacing: "-0.005em",
                   }}
                 >
                   {speaker.name}
                 </h3>
-                
-                <p 
+
+                <p
                   className="mb-3"
                   style={{
-                    fontSize: '0.9375rem',
-                    color: '#2a2a2a',
-                    letterSpacing: '0.01em',
-                    opacity: 0.8
+                    fontSize: "0.9375rem",
+                    color: "#2a2a2a",
+                    letterSpacing: "0.01em",
+                    opacity: 0.8,
                   }}
                 >
                   {speaker.position}
                 </p>
 
-                <p 
+                <p
                   style={{
-                    fontSize: '0.9375rem',
-                    lineHeight: '1.7',
-                    color: '#2a2a2a',
-                    letterSpacing: '0.005em'
+                    fontSize: "0.9375rem",
+                    lineHeight: "1.7",
+                    color: "#2a2a2a",
+                    letterSpacing: "0.005em",
                   }}
                 >
                   {speaker.description}
@@ -2059,43 +2224,53 @@ function AllSponsorsPage({ onBack }: { onBack: () => void }) {
   const sponsors = [
     {
       id: 1,
-      name: 'Sponsor Name',
-      position: 'Title Sponsor',
-      description: 'Detailed description of sponsor and their contribution to the festival. A leading cultural institution committed to supporting literary arts and fostering meaningful dialogue through sustained partnership.',
-      image: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=400&fit=crop'
+      name: "Sponsor Name",
+      position: "Title Sponsor",
+      description:
+        "Detailed description of sponsor and their contribution to the festival. A leading cultural institution committed to supporting literary arts and fostering meaningful dialogue through sustained partnership.",
+      image:
+        "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=400&fit=crop",
     },
     {
       id: 2,
-      name: 'Partner Organization',
-      position: 'Presenting Partner',
-      description: 'Detailed description of partner and their contribution to the festival. An organization dedicated to promoting literary culture and supporting emerging voices in the literary community.',
-      image: 'https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=400&h=400&fit=crop'
+      name: "Partner Organization",
+      position: "Presenting Partner",
+      description:
+        "Detailed description of partner and their contribution to the festival. An organization dedicated to promoting literary culture and supporting emerging voices in the literary community.",
+      image:
+        "https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=400&h=400&fit=crop",
     },
     {
       id: 3,
-      name: 'Cultural Foundation',
-      position: 'Platinum Sponsor',
-      description: 'Detailed description of foundation and their contribution to the festival. A foundation whose mission aligns with our commitment to fostering cultural exchange and literary excellence.',
-      image: 'https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=400&h=400&fit=crop'
+      name: "Cultural Foundation",
+      position: "Platinum Sponsor",
+      description:
+        "Detailed description of foundation and their contribution to the festival. A foundation whose mission aligns with our commitment to fostering cultural exchange and literary excellence.",
+      image:
+        "https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?w=400&h=400&fit=crop",
     },
     {
       id: 4,
-      name: 'Literary Trust',
-      position: 'Gold Sponsor',
-      description: 'Detailed description of trust and their contribution to the festival. A trust dedicated to preserving literary heritage while supporting contemporary literary creation and critical discourse.',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop'
+      name: "Literary Trust",
+      position: "Gold Sponsor",
+      description:
+        "Detailed description of trust and their contribution to the festival. A trust dedicated to preserving literary heritage while supporting contemporary literary creation and critical discourse.",
+      image:
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop",
     },
     {
       id: 5,
-      name: 'Publishing House',
-      position: 'Silver Sponsor',
-      description: 'Detailed description of publishing house and their contribution to the festival. A publisher committed to bringing diverse voices and innovative literary works to readers worldwide.',
-      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=400&fit=crop'
-    }
+      name: "Publishing House",
+      position: "Silver Sponsor",
+      description:
+        "Detailed description of publishing house and their contribution to the festival. A publisher committed to bringing diverse voices and innovative literary works to readers worldwide.",
+      image:
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=400&fit=crop",
+    },
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#f0efeb' }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#f0efeb" }}>
       <Navbar />
       <section className="py-16 md:py-24 px-6 pt-28 md:pt-32">
         <div className="max-w-6xl mx-auto">
@@ -2103,35 +2278,35 @@ function AllSponsorsPage({ onBack }: { onBack: () => void }) {
             onClick={onBack}
             className="mb-8 px-6 py-3 transition-all duration-300 inline-flex items-center gap-2"
             style={{
-              backgroundColor: '#2a2a2a',
-              color: '#f0efeb',
-              textDecoration: 'none',
-              fontSize: '1rem',
-              letterSpacing: '0.02em',
-              borderRadius: '2px',
-              border: 'none',
-              cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)'
+              backgroundColor: "#2a2a2a",
+              color: "#f0efeb",
+              textDecoration: "none",
+              fontSize: "1rem",
+              letterSpacing: "0.02em",
+              borderRadius: "2px",
+              border: "none",
+              cursor: "pointer",
+              boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1f1f1f';
-              e.currentTarget.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = "#1f1f1f";
+              e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.15)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#2a2a2a';
-              e.currentTarget.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+              e.currentTarget.style.backgroundColor = "#2a2a2a";
+              e.currentTarget.style.boxShadow = "0 1px 3px rgba(0, 0, 0, 0.1)";
             }}
           >
             ← Back to Home
           </button>
 
-          <h1 
+          <h1
             className="mb-12"
             style={{
-              fontFamily: 'Georgia, serif',
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: '#0b0b0b',
-              letterSpacing: '-0.01em'
+              fontFamily: "Georgia, serif",
+              fontSize: "clamp(2rem, 4vw, 3rem)",
+              color: "#0b0b0b",
+              letterSpacing: "-0.01em",
             }}
           >
             All Sponsors & Partners
@@ -2143,55 +2318,55 @@ function AllSponsorsPage({ onBack }: { onBack: () => void }) {
                 key={sponsor.id}
                 className="group"
                 style={{
-                  borderBottom: '1px solid rgba(11, 11, 11, 0.06)',
-                  paddingBottom: '2rem'
+                  borderBottom: "1px solid rgba(11, 11, 11, 0.06)",
+                  paddingBottom: "2rem",
                 }}
               >
-                <div 
+                <div
                   className="mb-4 overflow-hidden"
-                  style={{ borderRadius: '2px' }}
+                  style={{ borderRadius: "2px" }}
                 >
                   <img
                     src={sponsor.image}
                     alt={sponsor.name}
                     className="w-full h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     style={{
-                      filter: 'grayscale(100%) contrast(1.1)',
-                      opacity: 0.85
+                      filter: "grayscale(100%) contrast(1.1)",
+                      opacity: 0.85,
                     }}
                   />
                 </div>
 
-                <h3 
+                <h3
                   className="mb-2"
                   style={{
-                    fontFamily: 'Georgia, serif',
-                    fontSize: '1.25rem',
-                    color: '#0b0b0b',
-                    letterSpacing: '-0.005em'
+                    fontFamily: "Georgia, serif",
+                    fontSize: "1.25rem",
+                    color: "#0b0b0b",
+                    letterSpacing: "-0.005em",
                   }}
                 >
                   {sponsor.name}
                 </h3>
-                
-                <p 
+
+                <p
                   className="mb-3"
                   style={{
-                    fontSize: '0.9375rem',
-                    color: '#2a2a2a',
-                    letterSpacing: '0.01em',
-                    opacity: 0.8
+                    fontSize: "0.9375rem",
+                    color: "#2a2a2a",
+                    letterSpacing: "0.01em",
+                    opacity: 0.8,
                   }}
                 >
                   {sponsor.position}
                 </p>
 
-                <p 
+                <p
                   style={{
-                    fontSize: '0.9375rem',
-                    lineHeight: '1.7',
-                    color: '#2a2a2a',
-                    letterSpacing: '0.005em'
+                    fontSize: "0.9375rem",
+                    lineHeight: "1.7",
+                    color: "#2a2a2a",
+                    letterSpacing: "0.005em",
                   }}
                 >
                   {sponsor.description}
