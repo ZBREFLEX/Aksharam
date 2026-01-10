@@ -1659,15 +1659,16 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
                 letterSpacing: "-0.01em",
               }}
             >
-              About MGOCSM (Malankara Orthodox Church Student Movement)
+              About MGOCSM (Mar Gregorios Orthodox Christian Students Movement)
             </h1>
             <p className="mb-6" style={{ textAlign: "justify" }}>
-              The Malankara Orthodox Church Student Movement is an organisation
-              established for students under the auspices of the Malankara
-              Orthodox Syrian Church. An initiative to ensure spiritual progress
-              during the scholastic phase. From its inception in the early 20th
-              century, MGOCSM sought to shape the youth into responsible,
-              spiritually minded, and intellectually curious individuals.
+              The Mar Gregorios Orthodox Christian Students Movement is an
+              organisation established for students under the auspices of the
+              Mar Gregorios Orthodox Syrian Church. An initiative to ensure
+              spiritual progress during the scholastic phase. From its inception
+              in the early 20th century, MGOCSM sought to shape the youth into
+              responsible, spiritually minded, and intellectually curious
+              individuals.
             </p>
             <p className="mb-6" style={{ textAlign: "justify" }}>
               MGOCSM believes in the power of words and literature in shaping
