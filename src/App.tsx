@@ -599,7 +599,7 @@ function AboutSection({ onNavigate }: { onNavigate: (page: string) => void }) {
           as an act of truth, resistance, and resilience.
         </p>
         <p
-          className="mb-6"
+          className="mb-5"
           style={{
             fontSize: "clamp(1rem, 2vw, 1.125rem)",
             lineHeight: "1.8",
@@ -612,11 +612,35 @@ function AboutSection({ onNavigate }: { onNavigate: (page: string) => void }) {
           chant for truth, language, and critical thought. Rooted in Kottayam,
           the historic Land of Letters, the festival draws inspiration from the
           landmark 1957 literary conference that shaped modern Kerala’s cultural
-          consciousness. AKSHARAM brings together writers, thinkers, and artists
-          to explore literature as a voice for the marginalized and as a space
-          for rational, cultural dialogue. After seven decades, a stage for
-          ideas, debate, and creative exchange rises again in Kottayam. Letters
-          are noisy. They refuse silence, always.
+          consciousness.
+        </p>
+        <p
+          className="mb-5"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+            textAlign: "justify",
+          }}
+        >
+          AKSHARAM brings together writers, thinkers, and artists to explore
+          literature as a voice for the marginalized and as a space for
+          rational, cultural dialogue. After seven decades, a stage for ideas,
+          debate, and creative exchange rises again in Kottayam.
+        </p>
+        <p
+          className="mb-6"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.8",
+            color: "#2a2a2a",
+            letterSpacing: "0.005em",
+            textAlign: "justify",
+            fontWeight:"700"
+          }}
+        >
+          Letters are noisy. They refuse silence, always.
         </p>
         <button
           onClick={() => onNavigate("about-aksharam")}
@@ -1659,12 +1683,12 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
                 letterSpacing: "-0.01em",
               }}
             >
-              About MGOCSM (Mar Gregorios Orthodox Christian Students Movement)
+              About MGOCSM (Mar Gregorios Orthodox Christian Students Movement )
             </h1>
             <p className="mb-6" style={{ textAlign: "justify" }}>
               The Mar Gregorios Orthodox Christian Students Movement is an
               organisation established for students under the auspices of the
-              Mar Gregorios Orthodox Syrian Church. An initiative to ensure
+              Malankara Orthodox Syrian Church. An initiative to ensure
               spiritual progress during the scholastic phase. From its inception
               in the early 20th century, MGOCSM sought to shape the youth into
               responsible, spiritually minded, and intellectually curious
@@ -1673,9 +1697,9 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
             <p className="mb-6" style={{ textAlign: "justify" }}>
               MGOCSM believes in the power of words and literature in shaping
               the new world and commits to spreading knowledge across the
-              masses. The association with AKSHARAM strengthens the core values
-              of MGOCSM, which is to facilitate young students’ critical
-              thinking, leadership, and social awareness.
+              masses. AKSHARAM, its flagship literary fest, embodies the core
+              values of MGOCSM, facilitating young students' critical thinking,
+              leadership, and social awareness.
             </p>
             <h1
               className="mb-8"
@@ -1686,18 +1710,20 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
                 letterSpacing: "-0.01em",
               }}
             >
-              About CMS College, Kottayam
+              About CMS College Kottayam
             </h1>
             <p className="mb-6" style={{ textAlign: "justify" }}>
               CMS College is one of the pioneer colleges in India with a deeply
               rooted legacy dating back to 1817 when it was established. CMS
               College has played a major role in the literary, cultural, and
               social movements that took place in Kottayam, which has enabled
-              the city to earn the name “The land of 3 L’s”. With a well-known
-              tradition of intellectual discourse, CMS College now associates
-              with ‘AKSHARAM’ to foster literature as an expression and as a
-              form of resilience and resistance, while imparting a sense of
-              embrace for all forms of arts and artists.
+              the city to earn the name “The land of 3 L’s”.
+            </p>
+            <p className="mb-6" style={{ textAlign: "justify" }}>
+              With a well-known tradition of intellectual discourse, CMS College
+              now associates with ‘AKSHARAM’ to foster literature as an
+              expression and as a form of resilience and resistance, while
+              imparting a sense of embrace for all forms of arts and artists.
             </p>
             <div className="mx-auto mb-6" style={{ width: "180px" }}>
               <img
@@ -1726,7 +1752,7 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
             </div>
             <p className="mb-6" style={{ textAlign: "justify" }}>
               <strong>ABI</strong>- Meet <strong>Abi John Mathew</strong>, a
-              passionate 3rd-year BA Malayalam student at the CMS College,
+              passionate final year BA Malayalam student at the CMS College
               Kottayam, the mastermind behind AKSHARAM. He's also the Literary
               and Cultural Forum Secretary of MGOCSM. He thrives on Malayalam
               literature and culture. He is a creative visionary with a flair
