@@ -190,7 +190,7 @@ function Navbar() {
           </a>
 
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdZBov4dUTVn5OCVD9n6A9JIwGTm_TUOY3R9bc8ODPFq5eWAg/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 transition-all duration-300"
@@ -212,7 +212,7 @@ function Navbar() {
               e.currentTarget.style.backgroundColor = "#ffffffff";
             }}
           >
-            Volunteer / Attendee
+            Attendee
           </a>
         </div>
 
@@ -464,7 +464,7 @@ function HeroSection() {
         {/* Mobile Register Buttons */}
         <div className="lg:hidden flex flex-row gap-3 items-center">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfex3klzjhRtxikBlt27xu04jksbOpdvp-Y9ofrAWFLkxITpw/viewform?usp=header"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdZBov4dUTVn5OCVD9n6A9JIwGTm_TUOY3R9bc8ODPFq5eWAg/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 transition-all duration-300"
@@ -481,7 +481,7 @@ function HeroSection() {
               boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
             }}
           >
-            Volunteer / Attendee
+            Attendee
           </a>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSfvWw-IE2YNd2EDHk5X5uIWMOYT79MnxWAwRSmQIb_VATeH2Q/viewform?usp=publish-editor"
