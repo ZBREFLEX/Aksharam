@@ -190,7 +190,7 @@ function Navbar() {
           </a>
 
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdZBov4dUTVn5OCVD9n6A9JIwGTm_TUOY3R9bc8ODPFq5eWAg/viewform"
+            href="https://forms.gle/mvtpjTUX2r7W5pGM9"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-2 transition-all duration-300"
@@ -464,7 +464,7 @@ function HeroSection() {
         {/* Mobile Register Buttons */}
         <div className="lg:hidden flex flex-row gap-3 items-center">
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdZBov4dUTVn5OCVD9n6A9JIwGTm_TUOY3R9bc8ODPFq5eWAg/viewform"
+            href="https://forms.gle/mvtpjTUX2r7W5pGM9"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 transition-all duration-300"
