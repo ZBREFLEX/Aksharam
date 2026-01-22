@@ -1725,7 +1725,7 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
               expression and as a form of resilience and resistance, while
               imparting a sense of embrace for all forms of arts and artists.
             </p>
-            <div className="mx-auto mb-6" style={{ width: "180px" }}>
+            {/* <div className="mx-auto mb-6" style={{ width: "180px" }}>
               <img
                 src={abiImage}
                 alt="Abi John Mathew"
@@ -1758,7 +1758,7 @@ function AboutAksharamPage({ onBack }: { onBack: () => void }) {
               literature and culture. He is a creative visionary with a flair
               for innovation. His pursuits are deeply rooted in the power of
               words and culture.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
